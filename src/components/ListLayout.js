@@ -20,11 +20,8 @@ export const ListLayout = (props) => {
 
               <div  style={{ marginTop: '64px' }} ></div>
 
-              <ListHeader columns={ [ 'Application Number', 'Application Date', 'Loan Type', 'Status' ] } columnsWidths = { [ '140px', null, null, null ] } />
-              <ListItem {...rule} columns={ [ '#342', '05-Feb-2022', 'Car Loan', 'Submitted' ] } columnsWidths = { [ '140px', null, null, null ] } />
-              <ListItem {...rule} columns={ [ '#342', '05-Feb-2022', 'Car Loan', 'Submitted' ] } columnsWidths = { [ '140px', null, null, null ] } />
-              <ListItem {...rule} columns={ [ '#342', '05-Feb-2022', 'Car Loan', 'Submitted' ] } columnsWidths = { [ '140px', null, null, null ] } />
-              <ListItem {...rule} columns={ [ '#342', '05-Feb-2022', 'Car Loan', 'Submitted' ] } columnsWidths = { [ '140px', null, null, null ] } />
+              <ListHeader columns={ props.headers } columnsWidths = { props.columnsWidths } />
+              { props.items.map ( item => <ListItem {...rule} columns={ item } columnsWidths = { props.columnsWidths } /> ) }
             </div>
     )
 }

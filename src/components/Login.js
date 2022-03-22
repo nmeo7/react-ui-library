@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Input } from './Input'
 import { grid } from './styles'
 import { Btn } from './Btn'
+import { A } from './A'
 
 export const Login = (props) => {
 
@@ -21,6 +22,7 @@ export const Login = (props) => {
                     <div style={{ marginTop: '48px' }}>
                         <Btn onSubmit={() => props.onSubmit(user)} />
                     </div>
+                    <A href='/' >Forgot credentials?</A>
                 </div>
             </div>
         </div>

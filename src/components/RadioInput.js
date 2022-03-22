@@ -5,6 +5,7 @@ must be cool with an illustration, preferably a gif all the way.
 import React, { useContext } from 'react'
 import { css } from 'glamor'
 import { UserContext } from '..'
+import img from 'assets/checkmark.png'
 
 export const RadioInput = (props) => {
 
@@ -24,7 +25,11 @@ export const RadioInput = (props) => {
 
         '& .checkbox': 
         {
-            display: 'none'
+            display: 'block', background: 'transparent', border: `2px solid ${theme.primaryColorLight}`
+        },
+
+        '& img': {
+            opacity: '.0'
         },
         
         'input:hover ~ &': {
@@ -33,6 +38,10 @@ export const RadioInput = (props) => {
             '& .checkbox': 
             {
                 display: 'block', background: theme.primaryColorLight
+            },
+
+            '& img': {
+                opacity: '.5'
             }
         },
         
@@ -44,7 +53,11 @@ export const RadioInput = (props) => {
 
             '& .checkbox': 
             {
-                display: 'block', background: theme.primaryColor
+                display: 'block', background: theme.primaryColor, border: `1px solid ${theme.primaryColor}`
+            },
+
+            '& img': {
+                opacity: '1'
             }
         },
         
@@ -56,13 +69,19 @@ export const RadioInput = (props) => {
             display: 'block'
         }
     })
+
+    const iconStyle = css({
+        opacity: '.2',
+    })
     
     return (
         
 		<div>
         <input style={{ display: 'none' }} type="radio" name={props.name} id={props.id} />
         <label {...radioRule} for={props.id} onClick={props.onClick} style={{ height: props.height || '64px' }} >
-            <div style={{ position: 'absolute', width: '20px', height: '20px', top: '8px', right: '8px', borderRadius: '50%' }} className="checkbox" > </div>
+            <div style={{ position: 'absolute', width: '20px', height: '20px', top: '8px', right: '6px', borderRadius: '50%' }}  >
+                <img src={img} alt='check' width='100%' />
+            </div>
             <span>
                 { props.label || 'dummy'}
             </span>

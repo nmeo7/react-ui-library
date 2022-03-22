@@ -1,6 +1,6 @@
 import { css } from 'glamor'
 import React, { useContext } from 'react'
-import { UserContext } from '..'
+import { navigate, UserContext } from '..'
 
 const stepClass = (step, current) => {
     if (current == step) return 'current-step'
@@ -45,15 +45,17 @@ export const FormSteps = (props) => {
     const { theme } = useContext (UserContext)
 
     return (
-        <div style={{ padding: '16px 0 48px 0', position: 'relative', height: '32px', display: 'flex' }} >
+        <div style={{ padding: '16px 0 48px 0', position: 'relative', height: '32px', display: 'flex', width: '100%' }} >
 
             {
                 props.steps.map (
                     (step, index) => {
                         return (
                         <div style={{ flex: '1', position: 'relative', height: '2px' }} className={ stepClass(index + 1, props.currentStep) } { ...formTheme(theme) } >
-                            <div style={{ top: '-16px', bottom: '-16px', left: 'calc(50% - 16px)', right: 'calc(50% - 16px)', borderRadius: '50%', position: 'absolute' }} className='dot' ></div>
-                            <div style={{ bottom: '24px', width: 'calc(100% - 16px)', position: 'absolute', textAlign: 'center', padding: '8px' }} className='label' >{ index + 1 }. { step }</div>
+                            <div style={{ top: '-14px', bottom: '-14px', left: 'calc(50% - 14px)', right: 'calc(50% - 14px)', borderRadius: '50%', position: 'absolute', cursor: 'pointer' }} 
+                            className='dot'
+                            onClick={ () => navigate(`${props.baseUrl}/${step.toLowerCase().replaceAll(' ', '-')}`) } ></div>
+                            <div style={{ bottom: '24px', width: 'calc(100% - 14px)', position: 'absolute', textAlign: 'center', padding: '8px' }} className='label' >{ index + 1 }. { step }</div>
                         </div>)
                     }
                 )

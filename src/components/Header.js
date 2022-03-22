@@ -50,7 +50,7 @@ export const Header = (props) => {
                 <img alt='Logo' style={{ width: '280px' }} />
                 <div style={{ flex: '1' }} >
                     <div><a>Home</a> &gt; </div>
-                    <h1 {...title} style={{ transitionDuration: '.1s' }} > { new Date().getHours() > 12 ? 'Good Afternoon' : 'Good Morning' }, { props.displayName }!</h1>
+                    <h1 {...title} style={{ transitionDuration: '.1s' }} > { props.header ? props.header : `Good ${new Date().getHours() > 12 ? 'Afternoon' : 'Morning' }, ${props.displayName}!` }</h1>
                     <i className='hide-on-scroll' >This is your one stop to easily access the funds you need</i>
                 </div>
                 <div style={{ width: '140px', paddingLeft: '16px' }}>

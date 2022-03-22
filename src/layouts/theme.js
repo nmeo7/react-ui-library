@@ -11,5 +11,17 @@ export const themeStyles = (theme) => css({
         textTransform: 'capitalize',
         lineHeight: '1.5em',
         padding: '.2em 0'
+    },
+    '& .showOnHover': {
+      display: 'none'
+    },
+    '& *:hover > .showOnHover': {
+      display: 'grid' // , placeItems: 'center'
+    },
+    '& .hideOnHover': {
+      display: 'grid' // , placeItems: 'center'
+    },
+    '& *:hover > .hideOnHover': {
+      display: 'none'
     }
   })

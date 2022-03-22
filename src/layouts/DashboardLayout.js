@@ -1,17 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { css } from 'glamor'
 import { AnimatedBackground } from '../components/AnimatedBackground'
 import { LeftMenuSmall } from '../components/LeftMenuSmall'
 import { Header } from '../components/Header'
-import { NavLink } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
+import { Dialog } from '../components/Dialog'
+import { BottomDialog } from '../components/BottomDialog'
+
+let [dialogContent, setDialogContent] = [null, null]
+
+export const showDialog = (content) => {
+  setDialogContent (content)
+}
+
+const showBottomDialog = () => {
+
+}
+
+let location = null
+
+export const getLocation = () => location
 
 export const DashboardLayout = (props) => {
 
+  [dialogContent, setDialogContent] = useState()
+  location = useLocation()
+
     const content = css({
-      height: '200vh', 
       width: 'calc(100% - 480px)', 
       marginLeft: '380px', 
       marginTop: '204px', 
+      marginBottom: '96px', 
       marginRight: '96px',
       position: 'relative',
       // borderTop: '3px solid',
@@ -23,9 +42,9 @@ export const DashboardLayout = (props) => {
     })
     
     return (
-        <div>
+        <div >
             <AnimatedBackground/>
-            <Header scrolled={ props.scrolled } stickingHeader={ props.stickingHeader } logout={props.logout} displayName={props.displayName} />
+            <Header scrolled={ props.scrolled } stickingHeader={ props.stickingHeader } logout={props.logout} displayName={props.displayName} header={props.header} />
 
             <div { ...content } >
               {props.children}
@@ -34,6 +53,7 @@ export const DashboardLayout = (props) => {
             {/* <div style={{ position: 'fixed', right: '16px', bottom: '16px', borderRadius: '1.5em', background: '#777', display: 'grid', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', padding: '1em' }} onClick = { () => { window.scrollTo(0, 0) } } >
              Search
             </div> */}
+            { dialogContent && <Dialog> { dialogContent } </Dialog> }
         </div>
     )
 }

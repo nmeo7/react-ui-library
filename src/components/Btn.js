@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { css } from 'glamor'
 import { Loading, UserContext } from '..'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export const btnTheme = (theme) => css({
     '&.primary-button': {
@@ -23,6 +23,18 @@ export const btnTheme = (theme) => css({
         border: `2px solid ${theme.primaryColorDark}`,
         background: 'transparent',
         color: theme.primaryTextColorInverse
+    },
+    '&.tertiary-button': {
+      background: 'transparent',
+      textDecoration: 'none',
+      border: `none`,
+      boxShadow: 'none',
+      display: 'inline-block',
+      padding: '0', 
+    },
+    '&.tertiary-button:hover': {
+        background: 'transparent',
+        color: theme.primaryColor
     }
 })
 
@@ -41,6 +53,7 @@ const style = (disabled) => disabled ? css ({
 : css({
     padding: '1em', 
     margin: '0', 
+    marginBottom: '4px', 
     width: '100%', 
     fontSize: '16px', 
     borderRadius: '1.5em', 
@@ -49,17 +62,25 @@ const style = (disabled) => disabled ? css ({
     boxShadow: '0 2px 2px 1px #333',
     transitionDuration: '.2s', 
     '&:hover': {
-        boxShadow: 'none'
+        boxShadow: 'none',
+        marginTop: '4px',
+        marginBottom: '0'
     }
 })
 
+let history = null
+
+export const navigate = (link) => history && history (link)
+
 export const Btn = (props) => {
     const { theme } =  useContext (UserContext)
+    history = useNavigate ()
 
     const f = () => {}
 
     let buttonType = 'primary-button'
     if (props.secondary) buttonType = 'secondary-button'
+    if (props.tertiary) buttonType = 'tertiary-button'
 
     const [loading, setLoading] = useState (false)
 
@@ -72,10 +93,10 @@ export const Btn = (props) => {
     const theme1 = props.disabled ? css({}) : btnTheme(theme)
     
     return (
-        <div onClick={ props.disabled ? null : () => { setLoading (true) } } style={{ width: props.width || '100%', padding: '0' }} >
+        <div onClick={ props.disabled ? null : () => { setLoading (true) } } style={{ width: props.width || '100%', padding: '0', paddingTop: props.tertiary ? '0' : '1em', display: props.tertiary ? 'inline-block' : 'block' }} >
         {
             props.link ?
-            <Link to={props.disabled ? '' : props.link} {...style(props.disabled)} { ...linkStyle } className={buttonType} { ...theme1 } >
+            <Link to={props.disabled ? '' : props.link} {...style(props.disabled)} { ...linkStyle } className={buttonType} { ...theme1 } style={{ margin: props.tertiary && '0', padding: props.tertiary && '0' }} >
                 {props.label}
             </Link>
             :
@@ -103,7 +124,9 @@ export const DropdownButton = (props) => {
         border: 'none',
         flex: '1',
         '&:hover': {
-            boxShadow: 'none'
+            boxShadow: 'none',
+            margin: '0', 
+            marginBottom: '4px', 
         }
     })
 
@@ -112,14 +135,15 @@ export const DropdownButton = (props) => {
         borderRadius: '0 1.5em 1.5em 0 !important',
         border: 'none',
         flex: '1', '&:hover': {
-            boxShadow: 'none'
+            boxShadow: 'none',
+            margin: '0', 
+            marginBottom: '4px', 
         }
     })
 
     const style3 = css({
         borderRadius: '1.5em',
-        border: 'none',
-        boxShadow: '0 2px 2px 1px #333', '&:hover': {
+        border: 'none', '&:hover': {
             boxShadow: 'none'
         }
     })

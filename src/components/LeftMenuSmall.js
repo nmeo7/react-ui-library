@@ -47,7 +47,7 @@ export const LeftMenuSmall = (props) => {
         <div {...rule} >
                 {/* <div><NavLink to="/" className={(state) => console.log(state)} >Home</NavLink></div> */}
                 { props.menuItems.map( item => ( <div><NavLink to={item.link}  >{ item.label }</NavLink></div> ) ) }
-                <div style={{ flex: '1' }}></div>
+                {/* <div style={{ flex: '1' }}></div> */}
                 <div style={{  }}><NavLink to="/logout">Logout</NavLink></div>
 
         </div>

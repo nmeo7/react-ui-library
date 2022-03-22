@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { css } from 'glamor'
-import { UserContext } from '..'
+import { Btn, UserContext } from '..'
+import { Link } from 'react-router-dom'
 
 /*
     Only show options when hovered
@@ -29,16 +30,24 @@ export const ListItem = (props) => {
       }
     })
 
-    const columnsFlex = props.columnsFlex || (new Array(props.columns.length || 1)).fill(1)
-    const columnsWidths = props.columnsWidths || (new Array(props.columns.length || 1)).fill(null)
+    const columns = [...props.columns]
+    const link = columns.pop()
+
+    const columnsFlex = props.columnsFlex || (new Array(columns.length || 1)).fill(1)
+    const columnsWidths = props.columnsWidths || (new Array(columns.length || 1)).fill(null)
     
     return (
-        <div {...rule}>
-            {
-                props.columns.map ((x, index) => {
-                    return (<div style={ columnsWidths[index] ? { width: columnsWidths[index] } : { flex: columnsFlex[index] }} key={index} >{x}</div>)
-                })
-            }
-        </div>
+        <Link to={link} style={{ textDecoration: 'none' }} >
+            <div {...rule}  >
+                {
+                    columns.map ((x, index) => {
+                        return (<div style={ columnsWidths[index] ? { width: columnsWidths[index] } : { flex: columnsFlex[index] }} key={index} >{x}</div>)
+                    })
+                }
+                <div className='showOnHover' style={{ position: 'absolute', right: '32px' }} >
+                    <Btn tertiary label='delete' />
+                </div>
+            </div>
+        </Link>
     )
 }
