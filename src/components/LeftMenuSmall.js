@@ -18,10 +18,11 @@ export const LeftMenuSmall = (props) => {
         bottom: '0',
         left: '0',
         right: '64px',
-        height: '64px',
-        width: 'calc(100% - 32px)',
+        height: '48px',
+        width: '100%',
         top: 'auto',
-        background: '#333',
+        borderRadius: '32px 32px 0 0',
+        background: '#F9F1DC',
         flexDirection: 'row',
         margin: '0',
         
@@ -33,7 +34,7 @@ export const LeftMenuSmall = (props) => {
         }
       },
       '& > div': {
-          padding: '16px'
+          padding: '16px 0'
       },
       '& a': {
         padding: '16px',
@@ -47,8 +48,8 @@ export const LeftMenuSmall = (props) => {
         <div {...rule} >
                 {/* <div><NavLink to="/" className={(state) => console.log(state)} >Home</NavLink></div> */}
                 { props.menuItems.map( item => ( <div><NavLink to={item.link}  >{ item.label }</NavLink></div> ) ) }
-                {/* <div style={{ flex: '1' }}></div> */}
-                <div style={{  }}><NavLink to="/logout">Logout</NavLink></div>
+                <div style={{ flex: '1' }}></div>
+                <div style={{  }} onClick={props.logout} ><NavLink to="/logout">Logout</NavLink></div>
 
         </div>
     )

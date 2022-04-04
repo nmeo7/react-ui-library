@@ -51,6 +51,7 @@
     "dist"
   ],
   "dependencies": {
+    "aos": "^2.3.4",
     "glamor": "^2.20.40",
     "react-router-dom": "^6.2.1",
     "sass": "^1.49.7"

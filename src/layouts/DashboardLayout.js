@@ -37,19 +37,20 @@ export const DashboardLayout = (props) => {
       // borderRadius: '16px',
       '@media(max-width: 720px)': {
         width: '100%', 
-        marginLeft: '0', 
+        margin: '0', 
+        marginBottom: '96px', 
       }
     })
     
     return (
         <div >
             <AnimatedBackground/>
-            <Header scrolled={ props.scrolled } stickingHeader={ props.stickingHeader } logout={props.logout} displayName={props.displayName} header={props.header} />
+            <Header scrolled={ props.scrolled } stickingHeader={ props.stickingHeader } quickAction={props.quickAction} displayName={props.displayName} header={props.header} logo={props.logo} />
 
             <div { ...content } >
               {props.children}
             </div>
-            <LeftMenuSmall menuItems={ props.menuItems } />
+            <LeftMenuSmall menuItems={ props.menuItems } logout={props.logout} />
             {/* <div style={{ position: 'fixed', right: '16px', bottom: '16px', borderRadius: '1.5em', background: '#777', display: 'grid', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', padding: '1em' }} onClick = { () => { window.scrollTo(0, 0) } } >
              Search
             </div> */}

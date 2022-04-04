@@ -34,6 +34,8 @@ export const RadioInput = (props) => {
         
         'input:hover ~ &': {
             boxShadow: `0px 2px 4px ${theme.primaryColor}`,
+            border: `none`,
+            borderBottom: `4px solid ${theme.primaryColor}`,
 
             '& .checkbox': 
             {
@@ -46,7 +48,9 @@ export const RadioInput = (props) => {
         },
         
         'input:checked ~ &': {
-            border: `${theme.primaryColor} 2px solid`,
+            border: `${theme.primaryColorLight} 2px solid`,
+            border: `none`,
+            borderBottom: `4px solid ${theme.primaryColor}`,
             fontWeight: '900', 
             background: '#F9F1DC',
             boxShadow: `0px 4px 8px ${theme.primaryColor}`,
@@ -77,7 +81,7 @@ export const RadioInput = (props) => {
     return (
         
 		<div>
-        <input style={{ display: 'none' }} type="radio" name={props.name} id={props.id} />
+        <input style={{ display: 'none' }} type="radio" name={props.name} id={props.id} checked={props.checked} />
         <label {...radioRule} for={props.id} onClick={props.onClick} style={{ height: props.height || '64px' }} >
             <div style={{ position: 'absolute', width: '20px', height: '20px', top: '8px', right: '6px', borderRadius: '50%' }}  >
                 <img src={img} alt='check' width='100%' />

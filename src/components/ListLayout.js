@@ -21,7 +21,12 @@ export const ListLayout = (props) => {
               <div  style={{ marginTop: '64px' }} ></div>
 
               <ListHeader columns={ props.headers } columnsWidths = { props.columnsWidths } />
+              <div  style={{ marginBottom: '32px' }} ></div>
               { props.items.map ( item => <ListItem {...rule} columns={ item } columnsWidths = { props.columnsWidths } /> ) }
+              
+
+              <div  style={{ marginBottom: '64px' }} ></div>
+
             </div>
     )
 }

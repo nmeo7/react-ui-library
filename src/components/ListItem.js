@@ -13,7 +13,7 @@ export const ListItem = (props) => {
     let rule = css({
         borderRadius: '32px',
         padding: '1.6em',
-        width: 'calc(100% - 48px)',
+        width: 'calc(100% - 3.2em)',
         position: 'relative',
         display: 'flex',
         flexDirection: 'row',
@@ -24,6 +24,7 @@ export const ListItem = (props) => {
       ':hover': {
           boxShadow: `0px 2px 4px ${theme.primaryColor}`,
           padding: '1.25em 1em',
+          width: 'calc(100% - 2em)',
           fontSize: '1.2em',
           fontWeight: '900',
           color: theme.primaryColorDark
@@ -44,9 +45,9 @@ export const ListItem = (props) => {
                         return (<div style={ columnsWidths[index] ? { width: columnsWidths[index] } : { flex: columnsFlex[index] }} key={index} >{x}</div>)
                     })
                 }
-                <div className='showOnHover' style={{ position: 'absolute', right: '32px' }} >
+                {/* <div className='showOnHover' style={{ position: 'absolute', right: '32px' }} >
                     <Btn tertiary label='delete' />
-                </div>
+                </div> */}
             </div>
         </Link>
     )

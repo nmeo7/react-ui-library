@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { css } from 'glamor'
+import AOS from 'aos'
+import "aos/dist/aos.css"
 
 
 export const WebsiteLayout = (props) => {
@@ -63,6 +65,13 @@ export const WebsiteLayout = (props) => {
       { label: 'Contact', link: 'contact' },
       { label: 'Blog', link: 'blog' },
     ]
+
+
+    useEffect(() => {
+      AOS.init({
+        duration : 800
+      });
+    }, []);
 
 
 
