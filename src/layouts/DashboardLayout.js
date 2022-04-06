@@ -9,10 +9,6 @@ import { BottomDialog } from '../components/BottomDialog'
 
 let [dialogContent, setDialogContent] = [null, null]
 
-export const showDialog = (content) => {
-  setDialogContent (content)
-}
-
 const showBottomDialog = () => {
 
 }

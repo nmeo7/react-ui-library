@@ -4,7 +4,7 @@ must be cool with an illustration, preferably a gif all the way.
 
 import React, { useContext } from 'react'
 import { css } from 'glamor'
-import { UserContext } from '..'
+import { UserContext } from '../layouts/Context'
 import img from 'assets/checkmark.png'
 
 export const RadioInput = (props) => {

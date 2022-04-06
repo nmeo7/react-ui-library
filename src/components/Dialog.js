@@ -1,5 +1,8 @@
 import React from 'react'
-import { showDialog } from '../layouts/DashboardLayout'
+
+export const showDialog = (content) => {
+  setDialogContent (content)
+}
 
 export const Dialog = (props) => {
     

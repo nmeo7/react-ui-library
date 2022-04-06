@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { css } from 'glamor'
 import { Btn } from './Btn'
-import { DropdownButton, UserContext } from '..'
+import { UserContext } from '../layouts/Context'
 
 export const backgroundTheme = (theme) => css({
   background: theme.backgroundColor || '#fffdf9',

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { css } from 'glamor'
-import { Btn, UserContext } from '..'
+import { UserContext } from '../layouts/Context'
 import { Link } from 'react-router-dom'
 
 /*

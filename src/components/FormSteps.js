@@ -1,6 +1,7 @@
 import { css } from 'glamor'
 import React, { useContext } from 'react'
-import { navigate, UserContext } from '..'
+import { navigate } from './Btn'
+import { UserContext } from '../layouts/Context'
 
 const stepClass = (step, current) => {
     if (current == step) return 'current-step'

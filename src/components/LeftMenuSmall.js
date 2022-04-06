@@ -2,6 +2,8 @@ import React from 'react'
 import { css } from 'glamor'
 import { NavLink } from "react-router-dom"
 
+import logout_img from 'assets/logout.png'
+
 export const LeftMenuSmall = (props) => {
 
     // make css rules
@@ -49,7 +51,7 @@ export const LeftMenuSmall = (props) => {
                 {/* <div><NavLink to="/" className={(state) => console.log(state)} >Home</NavLink></div> */}
                 { props.menuItems.map( item => ( <div><NavLink to={item.link}  >{ item.label }</NavLink></div> ) ) }
                 <div style={{ flex: '1' }}></div>
-                <div style={{  }} onClick={props.logout} ><NavLink to="/logout">Logout</NavLink></div>
+                <div style={{  }} onClick={props.logout} ><NavLink to="/logout"><img src={logout_img} height='24px' width='24px' style={{ paddingRight: '16px' }} />Logout</NavLink></div>
 
         </div>
     )

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { css } from 'glamor'
-import { Loading, UserContext } from '..'
+import { Loading } from './Loading'
+import { UserContext } from '../layouts/Context'
 import { Link, useNavigate } from 'react-router-dom'
 
 export const btnTheme = (theme) => css({

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { css } from 'glamor'
-import { UserContext } from '..'
+import { UserContext } from '../layouts/Context'
 
 export const listTheme = (theme) => css({
     borderBottom: `1px solid ${theme.primaryColorDark}`,

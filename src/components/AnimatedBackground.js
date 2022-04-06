@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { css } from 'glamor'
-import { UserContext } from '..'
+import { UserContext } from '../layouts/Context'
 
 const floating = css.keyframes({
   '0%': { transform: `translate(0%, 0%) rotate(25deg)` },

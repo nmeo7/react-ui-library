@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { css } from 'glamor'
-import { Loading, UserContext } from '..'
+import { UserContext } from '../layouts/Context'
 import { Link } from 'react-router-dom'
 
 export const aTheme = (theme) => css({
