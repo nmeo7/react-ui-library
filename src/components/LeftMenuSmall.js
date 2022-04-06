@@ -6,7 +6,6 @@ import logout_img from 'assets/logout.png'
 
 export const LeftMenuSmall = (props) => {
 
-    // make css rules
     let rule = css({
         marginLeft: '64px',
         width: '240px',
@@ -47,12 +46,16 @@ export const LeftMenuSmall = (props) => {
     })
     
     return (
-        <div {...rule} >
-                {/* <div><NavLink to="/" className={(state) => console.log(state)} >Home</NavLink></div> */}
-                { props.menuItems.map( item => ( <div><NavLink to={item.link}  >{ item.label }</NavLink></div> ) ) }
-                <div style={{ flex: '1' }}></div>
-                <div style={{  }} onClick={props.logout} ><NavLink to="/logout"><img src={logout_img} height='24px' width='24px' style={{ paddingRight: '16px' }} />Logout</NavLink></div>
+      <div {...rule} >
+        { props.menuItems.map(item => <div><NavLink to={item.link} style={{ display: 'inline-block' }}> {item.label} </NavLink></div>) }
 
+        <div style={{ flex: '1' }}></div>
+
+        <div onClick={props.logout} >
+          <NavLink to="/logout">
+            <img src={logout_img} height='24px' width='24px' style={{ paddingRight: '16px' }} /> Logout
+          </NavLink>
         </div>
+      </div>
     )
 }

@@ -3,8 +3,6 @@ import { themeStyles } from "./theme";
 
 export const UserContext = createContext()
 
-
-
 const defaultTheme = {
   primaryColor: '#985a0a',
   secondaryColor: '',

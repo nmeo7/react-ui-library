@@ -17,49 +17,33 @@ const fadeInFromTop = css.keyframes({
 
 export const backgroundTheme = (theme) => css({
   background: theme.backgroundColor || '#fffdf9',
-})
-
-let rule = css({
-  color: 'red',
   height: '100vh',
   width: '100%',
   top: '0',
   bottom: '0',
-  // background: 'white',
-  // background: '#F9F1DC',
-  position: 'fixed',
-  ':hover': {
-    color: 'pink'
-  },
-  '@media(min-width: 300px)': {
-    color: 'green',
-    ':hover': {
-      color: 'yellow'
-    }
-  }
+  position: 'fixed'
 })
 
-const returnCircle = () => {
-  return css({
-    width: '70px',
-    height: '70px',
-    top: '45%',
-    left: '3%',
-    border: '2px solid #333',
-    position: 'absolute',
-    display: 'block',
-    borderRadius: '50%',
-    transformOrigin: '50% 50%',
-    animation: `${fadeInFromTop} .5s linear forwards, ${floating} ease-in-out 4s infinite`
-  })
-}
+const circle = (theme) => css({
+  width: '70px',
+  height: '70px',
+  top: '45%',
+  left: '3%',
+  border: '2px solid #333',
+  position: 'absolute',
+  display: 'block',
+  borderRadius: '50%',
+  transformOrigin: '50% 50%',
+  animation: `${fadeInFromTop} .5s linear forwards, ${floating} ease-in-out 4s infinite`
+})
 
 
 export const AnimatedBackground = () => {
-  const { theme } =  useContext (UserContext)
+  const { theme } = useContext(UserContext)
+
   return (
-  <div {...rule} { ...backgroundTheme(theme) } >
-    <div { ...returnCircle() }></div>
+  <div {...backgroundTheme(theme)}>
+    <div { ...circle(theme) }></div>
   </div>
   )
 }

@@ -1,10 +1,7 @@
-import React, { createContext, useContext } from "react"
-import { Link } from "react-router-dom";
-import { UserContext } from "./Context";
-import { themeStyles } from "./theme";
+import React, { useContext } from "react"
+import { UserContext } from "./Context"
 
-export const AppLayout = (props) => {
-  
+export const AppLayout = (props) => {  
   const { theme } =  useContext (UserContext)
     
   return (

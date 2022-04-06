@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { css } from 'glamor'
+
 import { Loading } from './Loading'
 import { UserContext } from '../layouts/Context'
-import { Link, useNavigate } from 'react-router-dom'
 
 export const btnTheme = (theme) => css({
     '&.primary-button': {
@@ -108,59 +109,6 @@ export const Btn = (props) => {
                 { loading ? <Loading/> : props.label || 'Login'}
             </button>
         }
-        </div>
-    )
-}
-
-export const DropdownButton = (props) => {
-    const { theme } =  useContext (UserContext)
-
-    const f = () => {}
-
-    let buttonType = 'primary-button'
-    if (props.secondary) buttonType = 'secondary-button'
-
-    const [loading, setLoading] = useState (false)
-
-    const style1 = css({
-        padding: '1em',
-        borderRadius: '1.5em 0 0 1.5em !important',
-        border: 'none',
-        flex: '1',
-        '&:hover': {
-            boxShadow: 'none',
-            margin: '0', 
-            marginBottom: '4px', 
-        }
-    })
-
-    const style2 = css({
-        padding: '1em 0',
-        borderRadius: '0 1.5em 1.5em 0 !important',
-        border: 'none',
-        flex: '1', '&:hover': {
-            boxShadow: 'none',
-            margin: '0', 
-            marginBottom: '4px', 
-        }
-    })
-
-    const style3 = css({
-        borderRadius: '1.5em',
-        border: 'none', '&:hover': {
-            boxShadow: 'none'
-        }
-    })
-
-    // buttonType = buttonType
-    const theme1 = props.disabled ? css({}) : btnTheme(theme)
-    
-    return (
-        <div onClick={ () => { setLoading (true) } } style={{ width: props.width || '100%', padding: '0', display: 'flex' }} {...style3} >
-            <button onClick={ props.onSubmit || f() } {...style(false)} {...style1} className={buttonType} { ...theme1 } >
-                { loading ? <Loading/> : props.label || 'Login'}
-            </button>
-            <button style={{ borderLeft: '3px solid black' }} {...style(false)} {...style2} className={buttonType} { ...theme1 } > v  </button>
         </div>
     )
 }

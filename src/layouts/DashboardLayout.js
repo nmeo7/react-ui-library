@@ -3,40 +3,31 @@ import { css } from 'glamor'
 import { AnimatedBackground } from '../components/AnimatedBackground'
 import { LeftMenuSmall } from '../components/LeftMenuSmall'
 import { Header } from '../components/Header'
-import { NavLink, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import { Dialog } from '../components/Dialog'
-import { BottomDialog } from '../components/BottomDialog'
 
 let [dialogContent, setDialogContent] = [null, null]
-
-const showBottomDialog = () => {
-
-}
-
 let location = null
+
+const content = css({
+  width: 'calc(100% - 480px)', 
+  marginLeft: '380px', 
+  marginTop: '204px', 
+  marginBottom: '96px', 
+  marginRight: '96px',
+  position: 'relative',
+  '@media(max-width: 720px)': {
+    width: '100%', 
+    margin: '0', 
+    marginBottom: '96px', 
+  }
+})
 
 export const getLocation = () => location
 
 export const DashboardLayout = (props) => {
-
   [dialogContent, setDialogContent] = useState()
   location = useLocation()
-
-    const content = css({
-      width: 'calc(100% - 480px)', 
-      marginLeft: '380px', 
-      marginTop: '204px', 
-      marginBottom: '96px', 
-      marginRight: '96px',
-      position: 'relative',
-      // borderTop: '3px solid',
-      // borderRadius: '16px',
-      '@media(max-width: 720px)': {
-        width: '100%', 
-        margin: '0', 
-        marginBottom: '96px', 
-      }
-    })
     
     return (
         <div >

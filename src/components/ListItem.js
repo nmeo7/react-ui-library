@@ -3,33 +3,29 @@ import { css } from 'glamor'
 import { UserContext } from '../layouts/Context'
 import { Link } from 'react-router-dom'
 
-/*
-    Only show options when hovered
-*/
+const rule = (theme) => css({
+    borderRadius: '32px',
+    padding: '1.6em',
+    width: 'calc(100% - 3.2em)',
+    position: 'relative',
+    display: 'flex',
+    flexDirection: 'row',
+    cursor: 'pointer',
+    color: 'black',
+    fontSize: '1em',
+    transitionDuration: '.1s',
+  ':hover': {
+      boxShadow: `0px 2px 4px ${theme.primaryColor}`,
+      padding: '1.25em 1em',
+      width: 'calc(100% - 2em)',
+      fontSize: '1.2em',
+      fontWeight: '900',
+      color: theme.primaryColorDark
+  }
+})
+
 export const ListItem = (props) => {
-
     const { theme } =  useContext (UserContext)
-
-    let rule = css({
-        borderRadius: '32px',
-        padding: '1.6em',
-        width: 'calc(100% - 3.2em)',
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'row',
-        cursor: 'pointer',
-        color: 'black',
-        fontSize: '1em',
-        transitionDuration: '.1s',
-      ':hover': {
-          boxShadow: `0px 2px 4px ${theme.primaryColor}`,
-          padding: '1.25em 1em',
-          width: 'calc(100% - 2em)',
-          fontSize: '1.2em',
-          fontWeight: '900',
-          color: theme.primaryColorDark
-      }
-    })
 
     const columns = [...props.columns]
     const link = columns.pop()
@@ -39,7 +35,7 @@ export const ListItem = (props) => {
     
     return (
         <Link to={link} style={{ textDecoration: 'none' }} >
-            <div {...rule}  >
+            <div {...rule(theme)}  >
                 {
                     columns.map ((x, index) => {
                         return (<div style={ columnsWidths[index] ? { width: columnsWidths[index] } : { flex: columnsFlex[index] }} key={index} >{x}</div>)
