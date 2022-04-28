@@ -10,7 +10,7 @@ export const LeftMenuSmall = (props) => {
         marginLeft: '64px',
         width: '240px',
         position: 'fixed',
-        top: '220px',
+        top: '204px',
         display: 'flex',
         flexDirection: 'column',
         height: 'calc(100vh - 240px)',
@@ -35,13 +35,18 @@ export const LeftMenuSmall = (props) => {
         }
       },
       '& > div': {
-          padding: '16px 0'
+          padding: '0px 0'
       },
       '& a': {
         padding: '16px',
         borderRadius: '32px',
         textDecoration: 'none',
         color: 'black'
+      },
+      '& span': {
+        verticalAlign: 'bottom',
+        height: '22px',
+        display: 'inline-block'
       }
     })
     

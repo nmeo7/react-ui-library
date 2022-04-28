@@ -8,5 +8,5 @@ export const route = (props) => <Route path={props.path} element={ props.element
 export const outlet = () => <Outlet/>
 export const RoutesWrapper = (props) => <Router><Routes>{ props.children }</Routes></Router>
 
-export const UpdateParams = () => params = useParams()
+export const UpdateParams = () => { params = useParams(); return <div></div> }
 export const getParams = () => params

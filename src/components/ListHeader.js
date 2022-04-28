@@ -13,7 +13,7 @@ export const listTheme = (theme) => css({
     margin: '16px 0',
     borderBottom: `1px solid ${theme.primaryColorDark}`,
     color: 'black',
-    background: theme.primaryColorLight
+    background: 'white'
 })
 
 export const ListHeader = (props) => {

@@ -1,3 +1,4 @@
+import { css } from 'glamor'
 import React from 'react'
 
 export const showDialog = (content) => {

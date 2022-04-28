@@ -4,7 +4,6 @@ import { css } from 'glamor'
 
 export const CardItem = (props) => {
 
-    // make css rules
     let rule = css({
         borderRadius: '32px',
         background: '#eee',
