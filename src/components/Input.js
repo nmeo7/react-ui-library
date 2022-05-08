@@ -1,3 +1,4 @@
+import Cleave from 'cleave.js/react'
 import { css } from 'glamor'
 import React, {useContext} from 'react'
 
@@ -14,6 +15,7 @@ const style = (theme) => css({
     }
 })
 
+
 export const Input = (props) => {
     const { theme } = useContext (UserContext) 
     
@@ -22,10 +24,14 @@ export const Input = (props) => {
             { props.noLabel ? null : <label style={{ padding: '2em 1em .5em', display: 'block' }} >{ `${props.label || 'Input'}:`}</label> }
             {
                 props.textarea ?
-                <textarea {...style(theme)} style={{ height: '200px', resize: 'vertical' }} placeholder={props.label} onChange={ e => props.onChange(e.target.value) } ></textarea>
+                <textarea {...style(theme)} style={{ height: '200px', resize: 'vertical' }} placeholder={props.label} onChange={ e => props.onChange(e.target.value) } value={props.value} ></textarea>
                 :
-                <input {...style(theme)} placeholder={ `type ${props.label} here` || 'Label...'} type={ props.type || 'text' }  onChange={ e => props.onChange(e.target.value) } />
+                <input className={props.inputClass} {...style(theme)} placeholder={ props.placeholder || `type ${props.label} here`} type={ props.type || 'text' }  onChange={ e => props.onChange(e.target.value) } value={props.value} />
             }
+
+{/* <Cleave placeholder="Enter your credit card number" {...style(theme)} value={props.value}
+                options={{ numeral: true, numeralThousandsGroupStyle: 'thousand', delimiter: ' ' }}
+                onChange={ console.log } /> */}
         </div>
     )
 }

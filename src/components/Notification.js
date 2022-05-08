@@ -19,7 +19,7 @@ const style = (theme) => css({
 export const Notification = (props) => {
     
     const { theme } =  useContext (UserContext)
-    return <div {...style(theme)} onClick={ props.onClick } >
+    return <div {...style(theme)} onClick={ props.onClick } style={{ background: !props.read && theme.primaryColorVariant }} >
                 { props.children }
             </div>
 }

@@ -5,6 +5,7 @@ import { UserContext } from '../layouts/Context'
 
 export const backgroundTheme = (theme) => css({
   background: theme.backgroundColor || '#fffdf9',
+  borderBottom: `${theme.primaryColorLight} 1px solid`
 })
 
 const wrapper = css({
@@ -72,7 +73,7 @@ export const Header = (props) => {
                 </div>
                 <div style={{ width: '140px', paddingLeft: '16px', transitionDuration: '.2s' }} {...stickingButton} className='hide-on-phone' >
                     {/* <DropdownButton onSubmit={props.quickAction} label='Apply!' /> */}
-                    <Btn onSubmit={props.quickAction} label='Apply!' />
+                    <Btn tertiary onSubmit={props.quickAction} label='Apply!' />
                 </div>
             </div>
             { props.stickingHeader ? <div {...sticking} > {props.stickingHeader} </div> : <div></div> }
