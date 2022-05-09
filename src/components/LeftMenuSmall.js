@@ -58,12 +58,12 @@ export const LeftMenuSmall = (props) => {
 
         <div style={{ flex: '1' }}></div>
 
-        <div style={{ position: 'relative' }} >
-          { showOptions && <div style={{ position: 'absolute', boxShadow: '0 2px 2px 1px #333', bottom: '48px', borderRadius: '16px', padding: '16px', left: '-16px' }} >
-            <NavLink to="/logout"> <img src={logout_img} height='24px' width='24px' style={{ paddingRight: '16px' }} /> Account </NavLink>
+        <div style={{ position: 'relative' }} onMouseEnter={ () => setShowOptions(true) } onMouseLeave={ () => setShowOptions(false) } >
+          { showOptions && <div style={{ position: 'relative', boxShadow: '0 2px 2px 1px #333', borderRadius: '16px', padding: '16px', marginBottom: '32px' }} >
+            <NavLink to="/profile"> <img src={logout_img} height='24px' width='24px' style={{ paddingRight: '16px' }} /> Account </NavLink>
             <NavLink onClick={props.logout} to="/logout"> <img src={logout_img} height='24px' width='24px' style={{ paddingRight: '16px' }} /> Logout </NavLink>
           </div> }
-          <div onMouseEnter={ () => setShowOptions(true) } onMouseLeave={ () => setShowOptions(false) } style={{ cursor: 'pointer' }} >
+          <div style={{ cursor: 'pointer' }} >
             <img src={logout_img} height='24px' width='24px' style={{ paddingRight: '16px' }} /> Account
           </div>
         </div>
