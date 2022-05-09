@@ -8,11 +8,11 @@ const style = (theme) => css({
     display: 'flex',
     borderRadius: '32px',
     transitionDuration: '.1s',
+    marginBottom: '32px',
   ':hover': {
       boxShadow: `0px 8px 24px ${theme.primaryColorLight}`,
       background: 'white',
-      paddingTop: '12px',
-      paddingBottom: '20px'
+      paddingLeft: '8px'
   }
 })
 
