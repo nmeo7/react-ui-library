@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { css } from 'glamor'
 import { AnimatedBackground } from '../components/AnimatedBackground'
 import { LeftMenuSmall } from '../components/LeftMenuSmall'
 import { Header } from '../components/Header'
 import { useLocation } from "react-router-dom"
 import { Dialog } from '../components/Dialog'
+import AOS from 'aos'
+import "aos/dist/aos.css"
 
 let [dialogContent, setDialogContent] = [null, null]
 let location = null
@@ -28,6 +30,11 @@ export const getLocation = () => location
 export const DashboardLayout = (props) => {
   [dialogContent, setDialogContent] = useState()
   location = useLocation()
+  
+  
+  useEffect(() => {
+    AOS.init({ duration : 800 })
+  }, [])
     
     return (
         <div >

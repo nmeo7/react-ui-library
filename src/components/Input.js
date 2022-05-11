@@ -26,12 +26,15 @@ export const Input = (props) => {
                 props.textarea ?
                 <textarea {...style(theme)} style={{ height: '200px', resize: 'vertical' }} placeholder={props.label} onChange={ e => props.onChange(e.target.value) } value={props.value} ></textarea>
                 :
-                <input className={props.inputClass} {...style(theme)} placeholder={ props.placeholder || `type ${props.label} here`} type={ props.type || 'text' }  onChange={ e => props.onChange(e.target.value) } value={props.value} />
+                ( props.format ?
+                <Cleave placeholder={ props.placeholder || `type ${props.label} here` } {...style(theme)} value={props.value}
+                                options={ props.format }
+                                onChange={ e => props.onChange( props.format?.raw ? e.target.rawValue : e.target.value ) } />
+                :
+                <input className={props.inputClass} {...style(theme)} placeholder={ props.placeholder || `type ${props.label} here` } type={ props.type || 'text' }  onChange={ e => props.onChange(e.target.value) } value={props.value} />
+                )
             }
-
-{/* <Cleave placeholder="Enter your credit card number" {...style(theme)} value={props.value}
-                options={{ numeral: true, numeralThousandsGroupStyle: 'thousand', delimiter: ' ' }}
-                onChange={ console.log } /> */}
         </div>
+
     )
 }

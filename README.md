@@ -19,22 +19,12 @@ npm link path/to/this/react-ui-library
 
 you can share stuff like constants, validation logic, random util functions, business logic, data fetching and npm libraries, hooks, state management, and even ui with your other js apps.
 
-twitter uses react native for its website.
-
-## must use libraries
-
-https://michalsnik.github.io/aos/
-https://kenwheeler.github.io/slick/
-https://nosir.github.io/cleave.js/
-
-npm install glamor --save // for using css directly inside js
-
 ## Misc
 
 hooks allow function components to have access to state and other React features.
 reducers help avoid "prop drilling" - passing the state as props through each nested component
 
-.grid { display: grid; grid-template-columns: 1fr 500px 1fr; grid-template-rows: 100px 200px; place-items: center }
+.grid { display: grid; grid-template-columns: 1fr 500px 1fr; grid-template-rows: 100px 200px; }
 style="--order: 1"
-animation-delay: calc (var(--order) * 100ms);
-Button:focus-within
+
+carousel: https://kenwheeler.github.io/slick/
