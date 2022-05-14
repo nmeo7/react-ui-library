@@ -20,7 +20,7 @@ export const Login = (props) => {
     
     return (
         <div {...grid} {...style} >
-            <div {...grid} style={{ background: '#ebcf8a', height: '100%', width: '100%' }} className='hide-on-phone' >
+            <div {...grid} style={{ background: 'rgb(112, 74, 0) none repeat scroll 0% 0%', height: '100%', width: '100%' }} className='hide-on-phone' >
                 { props.illustration || <img alt='no illustration' /> }
             </div>
             <div {...grid} >
@@ -29,10 +29,10 @@ export const Login = (props) => {
                     <h1 style={{ fontSize: '2em', paddingBottom: '.5em', borderBottom: '1px solid lightblue', paddingLeft: '.4em' }} >Login</h1>
                     
                     <form onSubmit={ (e) => { e.preventDefault() } } >
-                        <Input label="username" onChange={ (value) => setUser( { username: value, password: user.password } ) } />
-                        <Input label="password" type="password" onChange={ (value) => setUser( { username: user.username, password: value } ) } />
+                        <Input multiline label="username" onChange={ (value) => setUser( { username: value, password: user.password } ) } />
+                        <Input multiline label="password" type="password" onChange={ (value) => setUser( { username: user.username, password: value } ) } />
                         <div style={{ marginTop: '48px' }}>
-                            <Btn onSubmit={() => props.onSubmit(user)} />
+                            <Btn onSubmit={() => props.onSubmit(user)} error={props.loginState} />
                         </div>
                     </form>
                 </div>

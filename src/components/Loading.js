@@ -22,7 +22,7 @@ const style = css({
     position: 'absolute',
     left: '8px',
     width: '8px',
-    background: '#ebcf8a',
+    background: '#333',
     animation: `${lds} 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite`
   },
   '& div:nth-child(1)': {

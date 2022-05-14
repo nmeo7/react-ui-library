@@ -88,6 +88,7 @@ export const Btn = (props) => {
     if (props.tertiary) buttonType = 'tertiary-button'
 
     const [loading, setLoading] = useState (false)
+    const [error, setError] = useState ()
 
     const linkStyle = css({
         display: 'inline-block',
@@ -98,17 +99,20 @@ export const Btn = (props) => {
     const theme1 = props.disabled ? css({}) : btnTheme(theme)
     
     return (
-        <div onClick={ props.disabled ? null : () => { setLoading (true) } } {...style(props.disabled)} style={{ width: props.width || '100%', padding: '0', display: props.tertiary ? 'inline-block' : 'block' }} >
-        {
-            props.link ?
-            <Link to={props.disabled ? '' : props.link} { ...linkStyle } className={`${buttonType} button`} { ...theme1 } style={{ margin: props.tertiary && '0', padding: props.tertiary && '0', width: 'calc(100% - 2em)' }} >
-                {props.label}
-            </Link>
-            :
-            <button onClick={ !props.disabled && (props.onSubmit || f) } className={`${buttonType} button`} { ...theme1 } style={{ width: '100%' }} >
-                { loading ? <Loading/> : props.label || 'Login'}
-            </button>
-        }
+        <div style={{ position: 'relative' }} >
+        { error && <div style={{ color: 'red', padding: '1em', position: 'absolute', bottom: '4em', background: '#eaa', width: 'calc(100% - 32px)', borderRadius: '8px' }} > <span>&#8226;</span> { error }</div> }
+            <div onClick={ !props.disabled && !loading && (() => { setLoading (true); setError(null) }) } {...style(props.disabled)} style={{ width: props.width || '100%', padding: '0', display: props.tertiary ? 'inline-block' : 'block' }} >
+            {
+                props.link ?
+                <Link to={props.disabled ? '' : props.link} { ...linkStyle } className={`${buttonType} button`} { ...theme1 } style={{ margin: props.tertiary && '0', padding: props.tertiary && '0', width: 'calc(100% - 2em)' }} >
+                    {props.label}
+                </Link>
+                :
+                <button onClick={ async () => { !props.disabled && await props.onSubmit().catch(e => {setError(e?.response?.data?.message || e?.message || 'Uncaught Error'); console.log (e) }); setLoading(false) } } className={`${buttonType} button`} { ...theme1 } style={{ width: '100%' }} >
+                    { loading ? <Loading/> : props.label || 'Submit'}
+                </button>
+            }
+            </div>
         </div>
     )
 }

@@ -20,8 +20,8 @@ export const Input = (props) => {
     const { theme } = useContext (UserContext) 
     
     return (
-        <div style={{ width: props.width || 'calc(100% - 4px)', paddingBottom: '1em'  }} >
-            { props.noLabel ? null : <label style={{ padding: '2em 1em .5em', display: 'block' }} >{ `${props.label || 'Input'}:`}</label> }
+        <div style={{ width: props.width || 'calc(100% - 4px)', paddingBottom: '1em', display: props.multiline ? 'block' : 'flex' }} >
+            { props.noLabel ? null : <label style={{ padding: '1em', display: 'block', width: props.labelWidth || '320px', textAlign: !props.multiline && 'right' }} >{ `${props.label || 'Input'}:`}</label> }
             {
                 props.textarea ?
                 <textarea {...style(theme)} style={{ height: '200px', resize: 'vertical' }} placeholder={props.label} onChange={ e => props.onChange(e.target.value) } value={props.value} ></textarea>
