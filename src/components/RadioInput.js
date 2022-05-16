@@ -13,8 +13,8 @@ const radioRule = (theme) => css({
     padding: '32px',
     borderRadius: '16px',
     position: 'relative',
-    border: `2px solid ${theme.primaryColorLight}`,
     transitionDuration: '.1s',
+    boxShadow: `0px 2px 8px ${theme.primaryColorLight}`,
 
     '& .checkbox': 
     {
@@ -26,9 +26,9 @@ const radioRule = (theme) => css({
     },
     
     'input:hover ~ &': {
-        boxShadow: `0px 2px 4px ${theme.primaryColor}`,
+        border: `2px solid ${theme.primaryColorLight}`,
         border: `none`,
-        borderBottom: `4px solid ${theme.primaryColor}`,
+        borderBottom: `2px solid ${theme.primaryColor}`,
 
         '& .checkbox': 
         {
@@ -63,7 +63,7 @@ const radioRule = (theme) => css({
     },
     
     'input:hover ~ & .learnMore': {
-        display: 'block'
+        display: 'block', fontSize: '12px', color: '#777', position: 'absolute', bottom: '16px', padding: '0 16px'
     }
 })
 
@@ -78,7 +78,7 @@ export const RadioInput = (props) => {
                     <img src={img} alt='check' width='100%' />
                 </div>
                 <span> { props.label || 'dummy'} </span>
-                { props.learnMore && <p className='learnMore' >{ props.learnMore }</p> }
+                { <p className='learnMore' >{ props.learnMore }</p> }
             </label>
         </div>
     )

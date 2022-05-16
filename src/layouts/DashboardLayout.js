@@ -7,8 +7,10 @@ import { useLocation } from "react-router-dom"
 import { Dialog } from '../components/Dialog'
 import AOS from 'aos'
 import "aos/dist/aos.css"
+import { PopupHolder } from '../components/Popup'
 
 let [dialogContent, setDialogContent] = [null, null]
+let [messages, setMessages] = [null, null]
 let location = null
 
 const content = css({
@@ -27,14 +29,24 @@ const content = css({
 
 export const getLocation = () => location
 
+export const addMessage = (m) => { console.log('message', m); setMessages && setMessages(m, messages)}
+export let setMessages1
+
 export const DashboardLayout = (props) => {
   [dialogContent, setDialogContent] = useState()
+  const [messages, setMessages] = useState()
   location = useLocation()
+
+  setMessages1 = setMessages
   
   
   useEffect(() => {
     AOS.init({ duration : 800 })
   }, [])
+  
+  useEffect(() => {
+    console.log('message1', messages)
+  })
     
     return (
         <div >
@@ -49,6 +61,7 @@ export const DashboardLayout = (props) => {
              Search
             </div> */}
             { dialogContent && <Dialog> { dialogContent } </Dialog> }
+            <PopupHolder messages={messages} />
         </div>
     )
 }

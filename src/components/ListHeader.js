@@ -16,6 +16,13 @@ export const listTheme = (theme) => css({
     background: 'white'
 })
 
+const w = (principal, small) => css({
+    display: small && !principal && 'none',
+    '@media(max-width: 720px)': {
+        display: principal ? '' : 'none'
+    }
+})
+
 export const ListHeader = (props) => {
     const { theme } =  useContext (UserContext)
 
@@ -25,7 +32,7 @@ export const ListHeader = (props) => {
     return (
         <div { ...listTheme(theme) } >
             { props.columns.map (
-                (x, index) => <div style={ columnsWidths[index] ? { width: columnsWidths[index] } : { flex: columnsFlex[index] }} key={index} >{x}</div>
+                (x, index) => <div {...w(index == (props.principal || 1), props.small)} style={ columnsWidths[index] ? { width: columnsWidths[index] } : { flex: columnsFlex[index] }} key={index} >{x}</div>
             )}
         </div>
     )

@@ -15,11 +15,11 @@ const style = css({
 
 export const ListLayout = (props) => (
 <div>
-  <div style={{ marginTop: '64px' }} ></div>
-  <ListHeader columns={ props.headers } columnsWidths = { props.columnsWidths } />
-  <div style={{ marginBottom: '32px' }} ></div>
+  { !props.no_header && (<div style={{ marginTop: '64px', marginBottom: '32px' }} >
+  <ListHeader columns={ props.headers } columnsWidths = { props.columnsWidths } principal={props.principal} small={props.small} />
+  </div>)}
   
-  { props.items.map ( item => <ListItem {...style} columns={ item } columnsWidths = { props.columnsWidths } /> ) }
+  { props.items.map ( item => <ListItem {...style} columns={ item } columnsWidths = { props.columnsWidths } principal={props.principal} small={props.small} /> ) }
   <div style={{ marginBottom: '64px' }} ></div>
 </div>
 )

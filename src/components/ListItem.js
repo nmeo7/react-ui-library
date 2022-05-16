@@ -16,19 +16,23 @@ const rule = (theme) => css({
     transitionDuration: '.1s',
   ':hover': {
       boxShadow: `0px 8px 24px ${theme.primaryColorLight}`,
-      padding: '1.25em 1em',
-      width: 'calc(100% - 2em)',
-      fontSize: '1.2em',
+      // padding: '1.25em 1em',
+      // width: 'calc(100% - 2em)',
+      // fontSize: '1.2em',
       fontWeight: '900',
       color: theme.primaryColorDark,
       background: 'white'
   }
 })
 
-const cellStyle = css({
+const cellStyle = (principal, small) => css({
     textOverflow: 'ellipsis',
     overflow: 'hidden',
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
+    display: small && !principal && 'none',
+    '@media(max-width: 720px)': {
+        display: principal ? '' : 'none'
+    }
 })
 
 export const ListItem = (props) => {
@@ -43,11 +47,7 @@ export const ListItem = (props) => {
     return (
         <Link to={link} style={{ textDecoration: 'none' }} >
             <div {...rule(theme)}  >
-                {
-                    columns.map ((x, index) => {
-                        return (<div {...cellStyle} style={ columnsWidths[index] ? { width: columnsWidths[index] } : { flex: columnsFlex[index] }} key={index} >{x}</div>)
-                    })
-                }
+                { columns.map ((x, index) => <div {...cellStyle(index == (props.principal || 1), props.small)} style={ columnsWidths[index] ? { width: columnsWidths[index] } : { flex: columnsFlex[index] }} key={index} >{x}</div>) }
                 {/* <div className='showOnHover' style={{ position: 'absolute', right: '32px' }} >
                     <Btn tertiary label='delete' />
                 </div> */}

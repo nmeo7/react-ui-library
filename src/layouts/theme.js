@@ -23,5 +23,14 @@ export const themeStyles = (theme) => css({
     },
     '& *:hover > .hideOnHover': {
       display: 'none'
+    },
+    '&': {
+      fontFamily: `${theme.fontFamily} !important`
+    },
+    '& h1, & h2, & h3, & h4, & h5, & h6': {
+      fontFamily: `${theme.fontFamilyBold} !important`
+    },
+    '& h2': {
+      fontSize: '1.4em', margin: '4em 0 2em 24px'
     }
   })

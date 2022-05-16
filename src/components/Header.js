@@ -62,7 +62,7 @@ export const Header = (props) => {
     
     return (
         <div  >
-            <div { ...styles } { ...styles2 }  { ...wrapper } {...backgroundTheme(theme) } >
+            <div { ...styles } { ...styles2 }  { ...wrapper } {...backgroundTheme(theme) } style={{ height: '121px', overflow: 'hidden' }} >
                 <div style={{ width: '280px', position: 'relative', left: '-32px' }} >
                     { props.logo }
                 </div>

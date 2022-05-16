@@ -22,7 +22,9 @@ const defaultTheme = {
   disabledBackground: '',
   textColorOnPrimary: '',
   textColorOnSecondary: '',
-  textColorOnDark: ''
+  textColorOnDark: '',
+  fontFamily: '',
+  fontFamilyBold: ''
 }
 
 export const Context = (props) => {
