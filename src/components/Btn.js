@@ -75,11 +75,11 @@ const style = (disabled) => disabled ? css ({
 
 let history = null
 
-export const navigate = (link) => history && history (link)
+// export const navigate = (link) => history && history (link)
 
 export const Btn = (props) => {
     const { theme } =  useContext (UserContext)
-    history = useNavigate ()
+    // history = useNavigate ()
 
     const f = () => {}
 

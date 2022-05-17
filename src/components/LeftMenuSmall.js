@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { css } from 'glamor'
-import { NavLink } from "react-router-dom"
+// import { NavLink } from "react-router-dom"
 
 import logout_img from 'assets/logout.png'
 import user from 'assets/user.png'
+import { getLocation, navigate } from '../layouts/RoutesWrapper'
+
+const NavLink = (props) => <div onClick={ () => navigate(props.to) } style={{ display: 'inline-block', padding:'8px 0 8px 16px', cursor: 'pointer', borderRadius: '16px' }} className={ props.selected ? 'active' : '' } >{props.children}</div>
 
 export const LeftMenuSmall = (props) => {
 
@@ -53,17 +56,23 @@ export const LeftMenuSmall = (props) => {
     })
 
     const [showOptions, setShowOptions] = useState(false)
+
+    const [link, setLink] = useState()
+
+    useEffect(() => setLink((getLocation()?.pathname || '/')?.split('/')[1]))
+
+    console.log (props.menuItems, 'Link', link, getLocation()?.pathname)
     
     return (
       <div {...rule} >
-        { props.menuItems.map(item => <div><NavLink to={item.link} style={{ display: 'inline-block' }}> {item.label} </NavLink></div>) }
+        { props.menuItems.map(item => <NavLink to={item.link} selected={ item.link.split('/')[1] == link } > {item.label} </NavLink>) }
 
         <div style={{ flex: '1' }}></div>
 
         <div style={{ position: 'relative', paddingLeft: '16px' }} onMouseEnter={ () => setShowOptions(true) } onMouseLeave={ () => setShowOptions(false) } >
           { showOptions && <div style={{ position: 'relative', boxShadow: '0 2px 2px 1px #333', borderRadius: '16px', padding: '16px', marginBottom: '48px', left: '-32px' }} >
-            <div ><NavLink to="/profile" style={{ display: 'inline-block' }}> <img src={user} height='24px' width='24px' style={{ paddingRight: '16px' }} /> <span>Account</span> </NavLink></div>
-            <div><NavLink onClick={props.logout} to="/logout" style={{ display: 'inline-block' }}> <img src={logout_img} height='24px' width='24px' style={{ paddingRight: '16px' }} /> <span>Logout</span> </NavLink></div>
+            <NavLink to="/profile" style={{ display: 'inline-block' }}> <img src={user} height='24px' width='24px' style={{ paddingRight: '16px' }} /> <span>Account</span> </NavLink>
+            <NavLink onClick={props.logout} to="/logout" style={{ display: 'inline-block' }}> <img src={logout_img} height='24px' width='24px' style={{ paddingRight: '16px' }} /> <span>Logout</span> </NavLink>
           </div> }
           <div style={{ cursor: 'pointer' }} >
             <img src={user} height='24px' width='24px' style={{ paddingRight: '16px' }} /> <span>Account</span>

@@ -3,15 +3,14 @@ import { css } from 'glamor'
 import { AnimatedBackground } from '../components/AnimatedBackground'
 import { LeftMenuSmall } from '../components/LeftMenuSmall'
 import { Header } from '../components/Header'
-import { useLocation } from "react-router-dom"
 import { Dialog } from '../components/Dialog'
 import AOS from 'aos'
 import "aos/dist/aos.css"
 import { PopupHolder } from '../components/Popup'
+import { Context } from './Context'
+import { route, RouterPage, RoutesWrapper } from './RoutesWrapper'
 
 let [dialogContent, setDialogContent] = [null, null]
-let [messages, setMessages] = [null, null]
-let location = null
 
 const content = css({
   width: 'calc(100% - 480px)', 
@@ -27,41 +26,32 @@ const content = css({
   }
 })
 
-export const getLocation = () => location
+export let updateHeader = () => { }
 
-export const addMessage = (m) => { console.log('message', m); setMessages && setMessages(m, messages)}
-export let setMessages1
+export const DashboardPage = (props) => {
+    useEffect(() => updateHeader({}), [])
+    return <RouterPage> { props.children } </RouterPage>
+}
 
 export const DashboardLayout = (props) => {
   [dialogContent, setDialogContent] = useState()
-  const [messages, setMessages] = useState()
-  location = useLocation()
+  const [headerOptions, setHeaderOptions] = useState({})
 
-  setMessages1 = setMessages
-  
-  
-  useEffect(() => {
-    AOS.init({ duration : 800 })
-  }, [])
-  
-  useEffect(() => {
-    console.log('message1', messages)
-  })
+  useEffect(() => AOS.init({ duration : 800 }), [])
+  updateHeader = (h) => { setHeaderOptions({ ...props.headerOptions, ...h }); console.log('Header updated')}
     
-    return (
-        <div >
-            <AnimatedBackground/>
-            <Header scrolled={ props.scrolled } stickingHeader={ props.stickingHeader } quickAction={props.quickAction} displayName={props.displayName} header={props.header} logo={props.logo} />
-
-            <div { ...content } >
-              {props.children}
-            </div>
-            <LeftMenuSmall menuItems={ props.menuItems } logout={props.logout} />
-            {/* <div style={{ position: 'fixed', right: '16px', bottom: '16px', borderRadius: '1.5em', background: '#777', display: 'grid', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', padding: '1em' }} onClick = { () => { window.scrollTo(0, 0) } } >
-             Search
-            </div> */}
-            { dialogContent && <Dialog> { dialogContent } </Dialog> }
-            <PopupHolder messages={messages} />
-        </div>
-    )
+  return (
+    <Context theme={props.theme} >
+      <AnimatedBackground/>
+      <Header headerOptions={ headerOptions } scrolled={ props.scrolled } />
+      <div { ...content } ><RoutesWrapper routes={ props.routes?.map( route ) } /></div>
+      <LeftMenuSmall menuItems={ props.menuItems } logout={props.logout} />
+      
+      {/* <div style={{ position: 'fixed', right: '16px', bottom: '16px', borderRadius: '1.5em', background: '#777', display: 'grid', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', padding: '1em' }} onClick = { () => { window.scrollTo(0, 0) } } >
+       Search
+      </div> */}
+      { dialogContent && <Dialog> { dialogContent } </Dialog> }
+      <PopupHolder/>
+    </Context>
+  )
 }

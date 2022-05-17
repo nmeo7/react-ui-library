@@ -13,7 +13,7 @@ export const CisCalculator = (props) => {
                 </div>
                 <div style={{ flex: '1' }} >
                     <div>Customer</div>
-                    <div {...grid} style={{ aspectRatio: '1' }} >Payment</div>
+                    <div {...grid} style={{ aspectRatio: '1' }} onClick={ props.onPayment } >Payment</div>
                 </div>
             </div>
         </div>

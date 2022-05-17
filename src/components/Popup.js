@@ -9,8 +9,11 @@ export const PopupHolder = (props) => {
 
     addPopupMessage = (m) => {
         setMessages([...messages, m])
-        // setTimeout(() => messages?.length && setMessages(messages.pop() || []), 5000);
     }
+
+    useEffect(() => {
+        setTimeout(() => typeof (messages.shift() != 'undefined') && setMessages(messages), 4000)
+    }, [messages])
 
     return messages?.length ? <div style={{ position: 'fixed', right: '72px', bottom: '32px' }}>
         {
