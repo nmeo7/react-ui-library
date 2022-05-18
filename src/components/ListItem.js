@@ -46,7 +46,7 @@ export const ListItem = (props) => {
     
     return (
         <Link to={link} style={{ textDecoration: 'none' }} >
-            <div {...rule(theme)}  >
+            <div {...rule(theme)} data-aos="fade-right" data-aos-delay={ + props.order * 100 + 200 } >
                 { columns.map ((x, index) => <div {...cellStyle(index == (props.principal || 1), props.small)} style={ columnsWidths[index] ? { width: columnsWidths[index] } : { flex: columnsFlex[index] }} key={index} >{x}</div>) }
                 {/* <div className='showOnHover' style={{ position: 'absolute', right: '32px' }} >
                     <Btn tertiary label='delete' />

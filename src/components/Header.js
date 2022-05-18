@@ -60,6 +60,8 @@ export const Header = (props) => {
     }) : css({})
 
     const stickingButton = props.scrolled && stickingHeader ? css({ margin: '0' }) : css({ margin: '32px 0' })
+
+    const hours = new Date().getHours()
     
     return (
         <div  >
@@ -69,8 +71,8 @@ export const Header = (props) => {
                 </div>
                 <div style={{ flex: '1' }} >
                     <div><a>Home</a> &gt; </div>
-                    <h1 {...titleStyle} style={{ transitionDuration: '.1s' }} > { title ? title : `Good ${new Date().getHours() > 12 ? 'Afternoon' : 'Morning' }, ${displayName}!` }</h1>
-                    <i className='hide-on-scroll hide-on-phone' >This is your one stop to easily access the funds you need</i>
+                    <h1 {...titleStyle} style={{ transitionDuration: '.1s' }} > { title ? title : `Good ${(hours > 18 && 'Evening') || (hours > 12 && 'Afternoon') || 'Morning' }, ${displayName}!` }</h1>
+                    <i className='hide-on-scroll hide-on-phone' >{ subtitle }</i>
                 </div>
                 <div style={{ width: '140px', paddingLeft: '16px', transitionDuration: '.2s' }} {...stickingButton} className='hide-on-phone' >
                     {/* <DropdownButton onSubmit={props.quickAction} label='Apply!' /> */}

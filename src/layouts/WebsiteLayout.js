@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { css } from 'glamor'
 import AOS from 'aos'
 import "aos/dist/aos.css"
+import { route, RoutesWrapper } from './RoutesWrapper'
 
 const bar1 = css({ 
   position: 'absolute', height: '5px', right: '32px', top: '32px', width: '36px', backgroundColor: 'black', display: 'block', borderRadius: '5px', transition: '0.3s ease', 
@@ -76,9 +77,9 @@ export const WebsiteLayout = (props) => {
       <div className={opened ? 'change' : ''} >
 
         <div style={{ position: 'relative' }} >
-          <div style={{ zIndex: '99999', position: 'fixed', top: '0', width: '100%', height: '96px', background: 'white' }}>
+          <div style={{ zIndex: '99999', position: 'fixed', top: '0', width: '100%', height: '64px', padding: '16px', background: 'white' }}>
             <a href=''>
-              <img src={props.logo || ''} alt='logo' style={{ height: '64px', padding: '16px', display: 'inline-block' }} />
+              {props.logo || ''}
             </a>
               <div {...bar1} id="bar1" className="bar" style={{  }} ></div>
               <div {...bar2} id="bar2" className="bar" style={{  }} >
@@ -95,7 +96,7 @@ export const WebsiteLayout = (props) => {
 
 
           <div style={{ height: '200vh', width: 'calc(100% - 32px)', marginTop: '96px', position: 'relative', padding: '16px' }} >
-            { props.content || <div>No content Available!</div> }
+            { (props.routes && <RoutesWrapper routes={ props.routes?.map( route ) } />) || props.children || <div>No content Available!</div> }
           </div>
       </div>
   )

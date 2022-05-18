@@ -7,7 +7,7 @@ let location = null
 
 export const redirect = (to) => <Navigate replace to={to} />
 export const route = (props) => <Route path={props.path} element={ props.element } > { props.children && props.children.map( route ) } </Route>
-export const outlet = () => <Outlet/>
+export const outlet = (c) => <Outlet context={c} />
 export const RoutesWrapper = (props) => <Router><Routes>{ props.routes }</Routes></Router>
 
 export const UpdateParams = () => { params = useParams(); return <div></div> }

@@ -20,7 +20,7 @@ export const Login = (props) => {
     
     return (
         <div {...grid} {...style} >
-            <div {...grid} style={{ background: 'rgb(112, 74, 0) none repeat scroll 0% 0%', height: '100%', width: '100%' }} className='hide-on-phone' >
+            <div {...grid} style={{ background: 'rgb(94, 53, 0) none repeat scroll 0% 0%', height: '100%', width: '100%' }} className='hide-on-phone' >
                 { props.illustration || <img alt='no illustration' /> }
             </div>
             <div {...grid} >

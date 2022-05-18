@@ -3,7 +3,8 @@ import { css } from 'glamor'
 export const themeStyles = (theme) => css({
     '& .active': {
       backgroundColor: `${theme.primaryColorLight}`,
-      color: `${theme.primaryColor} !important`
+      color: `${theme.primaryColor} !important`,
+      fontWeight: '900'
     },
     '& h1': {
         fontSize: '2.5em',

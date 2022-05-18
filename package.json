@@ -35,8 +35,10 @@
   ],
   "dependencies": {
     "aos": "^2.3.4",
+    "apexcharts": "^3.35.2",
     "cleave.js": "^1.6.0",
     "glamor": "^2.20.40",
+    "react-apexcharts": "^1.4.0",
     "react-router-dom": "^6.2.1",
     "sass": "^1.49.7"
   }

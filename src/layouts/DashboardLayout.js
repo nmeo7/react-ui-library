@@ -38,7 +38,7 @@ export const DashboardLayout = (props) => {
   const [headerOptions, setHeaderOptions] = useState({})
 
   useEffect(() => AOS.init({ duration : 800 }), [])
-  updateHeader = (h) => { setHeaderOptions({ ...props.headerOptions, ...h }); console.log('Header updated')}
+  updateHeader = (h) => setHeaderOptions({ ...props.headerOptions, ...h })
     
   return (
     <Context theme={props.theme} >

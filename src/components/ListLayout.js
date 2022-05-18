@@ -19,7 +19,7 @@ export const ListLayout = (props) => (
   <ListHeader columns={ props.headers } columnsWidths = { props.columnsWidths } principal={props.principal} small={props.small} />
   </div>)}
   
-  { props.items.map ( item => <ListItem {...style} columns={ item } columnsWidths = { props.columnsWidths } principal={props.principal} small={props.small} /> ) }
+  { props.items.map ( (item, index) => <ListItem order={ index } {...style} columns={ item } columnsWidths = { props.columnsWidths } principal={props.principal} small={props.small} /> ) }
   <div style={{ marginBottom: '64px' }} ></div>
 </div>
 )

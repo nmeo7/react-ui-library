@@ -6,7 +6,7 @@ import logout_img from 'assets/logout.png'
 import user from 'assets/user.png'
 import { getLocation, navigate } from '../layouts/RoutesWrapper'
 
-const NavLink = (props) => <div onClick={ () => navigate(props.to) } style={{ display: 'inline-block', padding:'8px 0 8px 16px', cursor: 'pointer', borderRadius: '16px' }} className={ props.selected ? 'active' : '' } >{props.children}</div>
+const NavLink = (props) => <div onClick={ props.onClick || (() => navigate(props.to)) } style={{ display: 'inline-block', padding:'16px', paddingRight: '32px', cursor: 'pointer', borderRadius: '32px', width: 'fit-content' }} className={ props.selected ? 'active' : '' } >{props.children}</div>
 
 export const LeftMenuSmall = (props) => {
 
@@ -72,7 +72,7 @@ export const LeftMenuSmall = (props) => {
         <div style={{ position: 'relative', paddingLeft: '16px' }} onMouseEnter={ () => setShowOptions(true) } onMouseLeave={ () => setShowOptions(false) } >
           { showOptions && <div style={{ position: 'relative', boxShadow: '0 2px 2px 1px #333', borderRadius: '16px', padding: '16px', marginBottom: '48px', left: '-32px' }} >
             <NavLink to="/profile" style={{ display: 'inline-block' }}> <img src={user} height='24px' width='24px' style={{ paddingRight: '16px' }} /> <span>Account</span> </NavLink>
-            <NavLink onClick={props.logout} to="/logout" style={{ display: 'inline-block' }}> <img src={logout_img} height='24px' width='24px' style={{ paddingRight: '16px' }} /> <span>Logout</span> </NavLink>
+            <NavLink onClick={props.logout} style={{ display: 'inline-block' }}> <img src={logout_img} height='24px' width='24px' style={{ paddingRight: '16px' }} /> <span>Logout</span> </NavLink>
           </div> }
           <div style={{ cursor: 'pointer' }} >
             <img src={user} height='24px' width='24px' style={{ paddingRight: '16px' }} /> <span>Account</span>
