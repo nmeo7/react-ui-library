@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { css } from 'glamor'
-import AOS from 'aos'
-import "aos/dist/aos.css"
-import { route, RoutesWrapper } from './RoutesWrapper'
+// import AOS from 'aos'
 
 const bar1 = css({ 
   position: 'absolute', height: '5px', right: '32px', top: '32px', width: '36px', backgroundColor: 'black', display: 'block', borderRadius: '5px', transition: '0.3s ease', 
@@ -59,19 +57,19 @@ const menuBar = css({
 
 const transitionDelays = [ '.2s', '.3s', '.4s', '.45s', '.5s', '.54s', '.58s', '.62s', '.65s', '.68s' ]
 
-export const WebsiteLayout = (props) => {
-  const [opened, setOpened] = useState(false)
+export const WebsiteLayout = ({menuItems, logo, children, opened, setOpened}) => {
+//   const [opened, setOpened] = useState(false)
   
-  const menus = props.menuItems || [
+  const menus = menuItems || [
     { label: 'Home', link: 'home' },
     { label: 'About', link: 'about' },
     { label: 'Contact', link: 'contact' },
     { label: 'Blog', link: 'blog' },
   ]
   
-  useEffect(() => {
-    AOS.init({ duration : 800 })
-  }, [])
+//   useEffect(() => {
+//     AOS.init({ duration : 800 })
+//   }, [])
   
   return (
       <div className={opened ? 'change' : ''} >
@@ -79,12 +77,12 @@ export const WebsiteLayout = (props) => {
         <div style={{ position: 'relative' }} >
           <div style={{ zIndex: '99999', position: 'fixed', top: '0', width: '100%', height: '64px', padding: '16px', background: 'white' }}>
             <a href=''>
-              {props.logo || ''}
+              {logo || ''}
             </a>
               <div {...bar1} id="bar1" className="bar" style={{  }} ></div>
               <div {...bar2} id="bar2" className="bar" style={{  }} >
                   <ul style={{ padding: '0 22px', transition: '0.3s ease' }} >
-                    { menus.map((menu, i) => <li {...listStyle} style={{ transitionDelay: transitionDelays[i] }} ><a href={ menu.link }>{ menu.label }</a></li> )}
+                    { menus.map((menu, i) => <li key={menu.label} {...listStyle} style={{ transitionDelay: transitionDelays[i] }} ><a href={ menu.link }>{ menu.label }</a></li> )}
                   </ul>
               </div>
               <div {...bar3} id="bar3" className="bar" style={{  }} ></div>
@@ -96,7 +94,7 @@ export const WebsiteLayout = (props) => {
 
 
           <div style={{ height: '200vh', width: 'calc(100% - 32px)', marginTop: '96px', position: 'relative', padding: '16px' }} >
-            { (props.routes && <RoutesWrapper routes={ props.routes?.map( route ) } />) || props.children || <div>No content Available!</div> }
+            {children}
           </div>
       </div>
   )
