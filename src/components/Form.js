@@ -15,7 +15,7 @@ export const Form = props => {
         }
         :
         props.onFinish
-    } 
+      } 
       layout={ props.vertical ? 'vertical' : 'horizontal' }>
           { props.children }
       </AntForm>

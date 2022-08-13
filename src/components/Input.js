@@ -6,9 +6,8 @@ import { InputText } from './InputText'
 
 export const Input = ({ type, ...props }) => ({
         text: <InputText {...props}/>,
-        upi: <InputText {...props}/>,
         currency: <InputCurrency {...props}/>,
         time: <InputText {...props}/>,
         location: <Cascader {...props}/>,
         time_range: <InputRange {...props}/>
-    })[type || 'text']
+    })[type] || <InputText {...props}/>

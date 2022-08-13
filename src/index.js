@@ -7,5 +7,6 @@ export { Form } from './components/Form'
 export { KeyValue } from './components/KeyValuePair'
 export { openNotification } from './components/Notification'
 export { Comment } from './components/Comment'
+export { TextArea } from './components/TextArea'
 
 export { WebsiteLayout } from './layouts/WebsiteLayout'

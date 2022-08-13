@@ -5,7 +5,7 @@ export const Button = props => {
     return (
         <AntButton 
             type={(props.ghost && 'ghost') || (props.link && 'link') || (props.text && 'text') || 'primary'}
-            size='large'
+            size={props.size || 'large'}
             htmlType={(props.reset && 'reset') || 'submit'}
             style={props.style}
             loading={props.loading}
@@ -17,7 +17,9 @@ export const Button = props => {
                 }
                 : 
                 props.onClick}
-            disabled={props.disabled}>
+            disabled={props.disabled}
+            id={props.id}
+            icon={props.icon}>
             { props.children }
         </AntButton>
   )

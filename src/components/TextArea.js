@@ -1,12 +1,12 @@
 import { Form, Input } from 'antd'
 import React from 'react'
 
-const { TextArea } = Input
+const AntTextArea = Input.TextArea
 
-export const TextArea1 = props => {
+export const TextArea = props => {
   return (
     <Form.Item label={ props.label } labelCol={{ span: 6 }}>
-        <TextArea 
+        <AntTextArea 
         size="small" 
         rows={ props.rows || 10 } 
         placeholder={ props.placeholder || props.label } 
