@@ -9,4 +9,6 @@ export { openNotification } from './components/Notification'
 export { Comment } from './components/Comment'
 export { TextArea } from './components/TextArea'
 
+export { formatCurrency } from './services/formatNumber'
+
 export { WebsiteLayout } from './layouts/WebsiteLayout'
