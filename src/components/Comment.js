@@ -3,7 +3,7 @@ import React from 'react'
 export const Comment = ({content, createdBy, actionName, actionDetails, createdAt}) => (
     <div style={{ margin: '', marginBottom: '' }} >
         <div>
-            <p style={{ fontWeight: '900', margin: '0 0 16px 0', display: 'inline-block' }} >{createdBy}</p> <span>{actionDetails}</span>
+            <p style={{ fontWeight: '900', margin: '0', display: 'inline-block' }} >{createdBy}</p> <span>{actionDetails}</span>
         </div>
         <div>
             <span style={{ fontSize: '12px' }} >{createdAt}</span>
