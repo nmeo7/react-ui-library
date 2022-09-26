@@ -33,9 +33,9 @@
   "dependencies": {
     "antd": "^4.22.3",
     "aos": "^2.3.4",
-    "apexcharts": "^3.35.2",
     "cleave.js": "^1.6.0",
     "glamor": "^2.20.40",
+    "moment": "^2.29.4",
     "react": "^16.14.0",
     "react-apexcharts": "^1.4.0",
     "react-router-dom": "^6.2.1",

@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from 'glamor'
 import { BackTop } from 'antd'
-import { TbArrowBarToUp } from 'react-icons/tb'
+// import { TbArrowBarToUp } from 'react-icons/tb'
 import { DashboardHeader } from '../components/DashboardHeader'
 
 export const DashboardLayout = ({headerOptions, LeftMenu, Footer, theme, ...props}) => {
@@ -42,7 +42,7 @@ export const DashboardLayout = ({headerOptions, LeftMenu, Footer, theme, ...prop
         </div>
         { LeftMenu }
         <BackTop style={backToTop} >
-            <TbArrowBarToUp/>
+            {/* <TbArrowBarToUp/> */}
         </BackTop>
         </div>
     </div>

@@ -1,4 +1,4 @@
-export { BarChart } from './components/BarChart'
+// export { BarChart } from './components/BarChart'
 export { Button } from './components/Button'
 export { Input } from './components/Input'
 export { leftMenuLabel, leftMenuStyle } from './components/LeftMenu'
@@ -14,4 +14,3 @@ export { DashboardLayout } from './layouts/DashboardLayout'
 export { WebsiteLayout } from './layouts/WebsiteLayout'
 
 export { formatCurrency } from './services/formatNumber'
-export { useClickOutside } from './services/useClickOutside'

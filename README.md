@@ -1,30 +1,48 @@
-# Some good things to do
-
-## usage
+# how to create a react ui library
 
 npm install -g create-react-library
 npx create-react-library [library name]
 
-start with:
+to test, start with:
 npm start
 
-### to install this:
-npm install path/to/this/react-ui-library
-
-### then link to the ui:
-npm link path/to/this/react-ui-library
 
 
-## why prefer react over flutter:
+# Components
 
-you can share stuff like constants, validation logic, random util functions, business logic, data fetching and npm libraries, hooks, state management, and even ui with your other js apps.
+## BarChart
+
+not being used
+
+## Button
+
+<Button [ghost|link|text]? size='small|large|medium' reset? id={id} disabled={disabled} icon={icon} loading={loading} onClick={onClick} ></Button>
+
+## Input
+<Input type='text|currency|time|location|time_range'? label={?} placeholder={?} onChange={onChange} password? />
+
+## Table
+## RadioButton
+## Form
+## KeyValue
+## Comment
+## TextArea
+
+
+# Layouts
+
+## WebsiteLayout
+## DashboardLayout
+
+
+# Helpers
+
+## openNotification
+## leftMenuLabel
+## leftMenuStyle
+## formatCurrency
+
 
 ## Misc
 
-hooks allow function components to have access to state and other React features.
-reducers help avoid "prop drilling" - passing the state as props through each nested component
-
 .grid { display: grid; grid-template-columns: 1fr 500px 1fr; grid-template-rows: 100px 200px; }
-style="--order: 1"
-
-carousel: https://kenwheeler.github.io/slick/

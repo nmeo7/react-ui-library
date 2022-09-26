@@ -4,6 +4,8 @@ import { InputCurrency } from './InputCurrency'
 import { InputRange } from './InputRange'
 import { InputText } from './InputText'
 
+// import './assets/styles.css'
+
 export const Input = ({ type, ...props }) => ({
         text: <InputText {...props}/>,
         currency: <InputCurrency {...props}/>,
