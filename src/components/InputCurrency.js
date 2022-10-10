@@ -12,7 +12,8 @@ export const InputCurrency = props => {
             onChange={ value => { console.log(value); props.onChange(formatCurrency(value))} } // m => setRequested_amount(('' + (m || 0)).replace(/\B(?=(\d{3})+(?!\d))/g, ',')) } 
             value={ props.value }
             formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-            parser={value => value.replace(/\$\s?|(,*)/g, '')} />
+            parser={value => value.replace(/\$\s?|(,*)/g, '')}
+            help={props.help} />
     </Form.Item>
     )
 }

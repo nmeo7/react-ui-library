@@ -9,7 +9,8 @@ export const InputText = props => {
         placeholder={props.placeholder || props.label?.toLowerCase()}
         onChange={e => props.onChange(e.target.value)}
         type={(props.password && 'password') || 'text'}
-        value={props.value} />
+        value={props.value}
+        help={props.help} />
     </Form.Item>
   )
 }
