@@ -6,7 +6,7 @@ export const Button = props => {
         <AntButton 
             type={(props.ghost && 'ghost') || (props.link && 'link') || (props.text && 'text') || 'primary'}
             size={props.size || 'large'}
-            htmlType={(props.reset && 'reset') || 'submit'}
+            htmlType={(props.reset && 'reset') || props.htmlType || 'submit'}
             style={props.style}
             loading={props.loading}
             onClick={props.setLoading ? 

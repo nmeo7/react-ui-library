@@ -4,7 +4,7 @@ import { formatCurrency } from '../services/formatNumber';
 
 export const InputCurrency = props => {
   return (
-    <Form.Item  label={ props.label || 'Enter Requested Amount' } labelCol={{ span: 6 }}>
+    <Form.Item  label={ props.label || 'Enter Requested Amount' } labelCol={{ span: 6 }} help={props.help} validateStatus={props.valid || 'error'}>
         <InputNumber
             status={ props.validate && props.validate () }
             step={props.step || 1000000} 
@@ -13,7 +13,8 @@ export const InputCurrency = props => {
             value={ props.value }
             formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             parser={value => value.replace(/\$\s?|(,*)/g, '')}
-            help={props.help} />
+            prefix={props.prefix}
+            suffix={props.suffix} />
     </Form.Item>
     )
 }
