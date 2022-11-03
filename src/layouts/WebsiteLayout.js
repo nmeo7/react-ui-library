@@ -75,7 +75,7 @@ export const WebsiteLayout = ({menuItems, logo, children, opened, setOpened}) =>
       <div className={opened ? 'change' : ''} >
 
         <div style={{ position: 'relative' }} >
-          <div style={{ zIndex: '99999', position: 'fixed', top: '0', width: '100%', height: '64px', padding: '16px', background: 'white' }}>
+          <div style={{ zIndex: '99999', position: 'fixed', top: '0', width: '100%', height: '96px', padding: '16px', background: 'white' }}>
             <a href=''>
               {logo || ''}
             </a>

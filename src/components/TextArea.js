@@ -5,9 +5,10 @@ const AntTextArea = Input.TextArea
 
 export const TextArea = props => {
   return (
-    <Form.Item label={ props.label } labelCol={{ span: 6 }}>
+    <Form.Item label={ props.label } labelCol={{ span: props.span || '6' }}>
         <AntTextArea 
-        size="small" 
+        style={{ padding: '16px', ...props.style }}
+        size="large" 
         rows={ props.rows || 10 } 
         placeholder={ props.placeholder || props.label } 
         onChange={ l => props.onChange(l.target.value) } 

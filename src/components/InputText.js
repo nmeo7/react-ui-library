@@ -3,7 +3,7 @@ import React from 'react'
 
 export const InputText = props => {
   return (
-    <Form.Item label={props.label} labelCol={{ span: props.span || '6' }} help={props.help} validateStatus={props.help ? 'error' : ''} >
+    <Form.Item label={props.label} labelCol={{ span: props.span || '6' }} help={props.help} validateStatus={props.status || ''} >
       <Input
         size='large'
         placeholder={props.placeholder || props.label?.toLowerCase()}

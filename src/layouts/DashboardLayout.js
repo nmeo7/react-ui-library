@@ -2,7 +2,7 @@ import React from 'react'
 import { css } from 'glamor'
 import { BackTop } from 'antd'
 // import { TbArrowBarToUp } from 'react-icons/tb'
-import { DashboardHeader } from '../components/DashboardHeader'
+import { DashboardHeader } from './DashboardHeader'
 
 export const DashboardLayout = ({headerOptions, LeftMenu, Footer, theme, ...props}) => {
 
