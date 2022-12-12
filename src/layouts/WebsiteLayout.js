@@ -72,10 +72,10 @@ export const WebsiteLayout = ({menuItems, logo, children, opened, setOpened}) =>
 //   }, [])
   
   return (
-      <div className={opened ? 'change' : ''} >
+      <div className={opened ? 'change' : ''} style={{ maxWidth: '1440px', margin: 'auto' }} >
 
         <div style={{ position: 'relative' }} >
-          <div style={{ zIndex: '99999', position: 'fixed', top: '0', width: '100%', height: '96px', padding: '16px', background: 'white' }}>
+          <div style={{ zIndex: '99999', position: 'fixed', top: '0', maxWidth: '1440px', width: '100%', height: '96px', padding: '16px', background: 'white' }}>
             <a href=''>
               {logo || ''}
             </a>

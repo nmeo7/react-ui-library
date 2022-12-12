@@ -9,7 +9,7 @@ export const backgroundTheme = (theme) => css({
 })
 
 const wrapper = css({
-    position: 'fixed', width: 'calc(100% - 192px)', width: '100%', zIndex: '1', top: '0', padding: '20px 0',
+    position: 'fixed', width: 'calc(100% - 192px)', width: '100%', zIndex: '1', top: '0', padding: '20px 0', left: '0',
     '@media(max-width: 720px)': {
         width: 'calc(100% - 80px)',
         width: '100%',
@@ -53,7 +53,7 @@ export const DashboardHeader = (props) => {
 
     const sticking = props.scrolled && stickingHeader ? css({
         display: 'block',
-        bottom: 'calc(100vh - 164px)',
+        bottom: 'calc(100vh - 121px)',
         height: '64px',
         zIndex: '1000',
         width: '100%'
@@ -82,7 +82,7 @@ export const DashboardHeader = (props) => {
     
     return (
         <div  >
-            <div { ...styles } { ...styles2 } { ...wrapper } {...backgroundTheme(theme || null) } style={{ height: '121px', height: '164px', overflow: 'hidden',zIndex: '1000', opacity: '.989' }} >
+            <div { ...styles } { ...styles2 } { ...wrapper } {...backgroundTheme(theme || null) } style={{ height: '164px', height: '121px', overflow: 'hidden',zIndex: '1000', opacity: '.989' }} >
                 <div {...headerStyles2} >
                     <div>
                         { logo || <div>

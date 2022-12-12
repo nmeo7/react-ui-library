@@ -31,6 +31,15 @@ export const DashboardLayout = ({headerOptions, LeftMenu, Footer, theme, ...prop
           margin: '32px 32px 32px 32px',
       }
       })
+
+    const leftMenuStyle = css({ 
+      width: `${theme?.leftMenuWidth || '240px'}`, position: 'fixed', top: '200px', height: 'calc(100vh - 240px)',
+      '@media(max-width: 720px)': {
+        width: '100%',
+        top: 'calc(100vh - 48px)',
+        height: 'auto'
+    }
+     })
   
   return (
     <div>
@@ -40,7 +49,9 @@ export const DashboardLayout = ({headerOptions, LeftMenu, Footer, theme, ...prop
             { props.children }
             { Footer }
         </div>
-        { LeftMenu }
+        <div {...leftMenuStyle} >
+          { LeftMenu }
+        </div>
         <BackTop style={backToTop} >
             {/* <TbArrowBarToUp/> */}
         </BackTop>
