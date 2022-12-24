@@ -19,7 +19,7 @@ const bar2 = css({
     borderRadius: '0'
   },
   '@media(min-width: 720px)': {
-    top: '0', height: '96px', right: '0', width: 'auto', borderRadius: '0', background: 'white'
+    top: '0', height: '96px', right: '0', width: 'auto', borderRadius: '0', background: 'transparent'
   }
 })
 
@@ -75,13 +75,14 @@ export const WebsiteLayout = ({menuItems, logo, children, opened, setOpened}) =>
       <div className={opened ? 'change' : ''} style={{ maxWidth: '1440px', margin: 'auto' }} >
 
         <div style={{ position: 'relative' }} >
-          <div style={{ zIndex: '99999', position: 'fixed', top: '0', maxWidth: '1440px', width: '100%', height: '96px', padding: '16px', background: 'white' }}>
+          <div style={{ zIndex: '99999', position: 'fixed', top: '0', left: '0', right: '0', height: '156px', boxShadow: '#ebcf8a 16px 4px 32px', backgroundColor: '#F9F1DCaa' }}></div>
+          <div style={{ zIndex: '99999', position: 'fixed', top: '0', maxWidth: '1440px', width: '100%', height: '96px', padding: '16px' }}>
             <a href=''>
               {logo || ''}
             </a>
               <div {...bar1} id="bar1" className="bar" style={{  }} ></div>
               <div {...bar2} id="bar2" className="bar" style={{  }} >
-                  <ul style={{ padding: '0 22px', transition: '0.3s ease' }} >
+                  <ul style={{ padding: '24px 22px', transition: '0.3s ease' }} >
                     { menus.map((menu, i) => <li key={menu.label} {...listStyle} style={{ transitionDelay: transitionDelays[i] }} ><a href={ menu.link }>{ menu.label }</a></li> )}
                   </ul>
               </div>
@@ -93,7 +94,7 @@ export const WebsiteLayout = ({menuItems, logo, children, opened, setOpened}) =>
         </div>
 
 
-          <div style={{ height: '200vh', width: 'calc(100% - 32px)', marginTop: '96px', position: 'relative', padding: '16px' }} >
+          <div style={{  }} >
             {children}
           </div>
       </div>
