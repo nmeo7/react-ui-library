@@ -82,7 +82,7 @@ export const DashboardHeader = (props) => {
     
     return (
         <div  >
-            <div { ...styles } { ...styles2 } { ...wrapper } {...backgroundTheme(theme || null) } style={{ height: '164px', height: '121px', overflow: 'hidden',zIndex: '1000', opacity: '.989' }} >
+            <div { ...styles } { ...styles2 } { ...wrapper } {...backgroundTheme(theme || null) } style={{ height: '164px', overflow: 'hidden',zIndex: '1000', opacity: '.989' }} >
                 <div {...headerStyles2} >
                     <div>
                         { logo || <div>

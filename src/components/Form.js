@@ -16,7 +16,8 @@ export const Form = props => {
         :
         props.onFinish
       } 
-      layout={ props.vertical ? 'vertical' : 'horizontal' }>
+      layout={ props.vertical ? 'vertical' : 'horizontal' }
+      labelAlign = { props.alignLeft ? 'left' : 'right' }>
           { props.children }
       </AntForm>
     </Spin>
