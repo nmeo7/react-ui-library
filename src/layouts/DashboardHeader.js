@@ -53,8 +53,9 @@ export const DashboardHeader = (props) => {
 
     const sticking = props.scrolled && stickingHeader ? css({
         display: 'block',
-        bottom: 'calc(100vh - 121px)',
-        height: '64px',
+        bottom: 'calc(100vh - 141px)',
+        // background: 'blue',
+        // height: '64px',
         zIndex: '1000',
         width: '100%'
     }) : css({ display: 'none' })

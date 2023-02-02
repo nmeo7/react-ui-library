@@ -14,7 +14,8 @@ export const InputCurrency = props => {
             formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             parser={value => value.replace(/\$\s?|(,*)/g, '')}
             prefix={props.prefix}
-            suffix={props.suffix} />
+            suffix={props.suffix}
+            style={{ width: props.width || '180px' }} />
     </Form.Item>
     )
 }
