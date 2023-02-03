@@ -16,27 +16,33 @@ not being used
 
 `<Button [primary|ghost|link|text] size='large|small|medium' [reset|htmlType] id disabled icon loading onClick ></Button>`
 
-## Input
+## Chip
 
-`<Input type='text|currency|time|location|time_range'? label placeholder prefix suffix value width options onChange password? />`
+`<Chip selected styles onClick></Chip>`
 
-## Table
+## Comment
 
-`<Table dataSource columns empty_icon navigate prefix suffix={() => ''}></Table>`
-
-## RadioButton
+`<Comment createdBy actionDetails createdAt></Comment>`
 
 ## Form
 
 `<Form loading onFinish alignLeft vertical></Form>`
 
+## InfoTooltip
+
+`<InfoTooltip color icon></InfoTooltip>`
+
+## Input
+
+`<Input type='text|currency|time|location|time_range'? label placeholder prefix suffix value width options onChange password? />`
+
 ## KeyValue
 
 `<KeyValue key1 value1 multiline></KeyValue>`
 
-## Comment
+## Table
 
-`<Comment createdBy actionDetails createdAt></Comment>`
+`<Table dataSource columns empty_icon navigate prefix suffix={() => ''}></Table>`
 
 ## TextArea
 
@@ -44,27 +50,27 @@ not being used
 
 # Layouts
 
-## WebsiteLayout
-
-`<WebsiteLayout menuItems={[{label,link},{label,link},...]} logo opened setOpened ><WebsiteLayout>`
-
 ## DashboardLayout
 
 `<DashboardLayout headerOptions LeftMenu Footer theme></DashboardLayout>`
 
+## WebsiteLayout
+
+`<WebsiteLayout menuItems={[{label,link},{label,link},...]} logo opened setOpened ><WebsiteLayout>`
+
 # Helpers
 
-## openNotification
+## formatCurrency
 
-`args: {title, description, type}`
+`args: number`
 
 ## leftMenuLabel
 
 `args: (icon, text, link)`
 
-## formatCurrency
+## openNotification
 
-`args: number`
+`args: {title, description, type}`
 
 ## Misc
 
