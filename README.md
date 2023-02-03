@@ -6,8 +6,6 @@ npx create-react-library [library name]
 to test, start with:
 npm start
 
-
-
 # Components
 
 ## BarChart
@@ -16,32 +14,57 @@ not being used
 
 ## Button
 
-<Button [ghost|link|text]? size='small|large|medium' reset? id={id} disabled={disabled} icon={icon} loading={loading} onClick={onClick} ></Button>
+<Button [primary|ghost|link|text] size='large|small|medium' [reset|htmlType] id disabled icon loading onClick ></Button>
 
 ## Input
-<Input type='text|currency|time|location|time_range'? label={?} placeholder={?} onChange={onChange} password? />
+
+<Input type='text|currency|time|location|time_range'? label placeholder prefix suffix value width options onChange password? />
 
 ## Table
+
+<Table dataSource columns empty_icon navigate prefix suffix={() => ''}></Table>
+
 ## RadioButton
+
 ## Form
+
+<Form loading onFinish alignLeft vertical></Form>
+
 ## KeyValue
+
+<KeyValue key1 value1 multiline></KeyValue>
+
 ## Comment
+
+<Comment createdBy actionDetails createdAt></Comment>
+
 ## TextArea
 
+<TextArea rows placeholder label value onChange style span></TextArea>
 
 # Layouts
 
 ## WebsiteLayout
+
+<WebsiteLayout menuItems={[{label,link},{label,link},...]} logo opened setOpened ><WebsiteLayout>
+
 ## DashboardLayout
 
+<DashboardLayout headerOptions LeftMenu Footer theme></DashboardLayout>
 
 # Helpers
 
 ## openNotification
+
+args: {title, description, type}
+
 ## leftMenuLabel
-## leftMenuStyle
+
+args: (icon, text, link)
+
 ## formatCurrency
 
+args: number
 
 ## Misc
 

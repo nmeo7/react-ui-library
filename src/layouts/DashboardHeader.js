@@ -54,7 +54,6 @@ export const DashboardHeader = (props) => {
     const sticking = props.scrolled && stickingHeader ? css({
         display: 'block',
         bottom: 'calc(100vh - 141px)',
-        // background: 'blue',
         // height: '64px',
         zIndex: '1000',
         width: '100%'
@@ -83,7 +82,7 @@ export const DashboardHeader = (props) => {
     
     return (
         <div  >
-            <div { ...styles } { ...styles2 } { ...wrapper } {...backgroundTheme(theme || null) } style={{ height: '164px', height: '141px', overflow: 'hidden',zIndex: '1000', opacity: '.989' }} >
+            <div { ...styles } { ...styles2 } { ...wrapper } {...backgroundTheme(theme || null) } style={{ height: '164px', height: '161px', overflow: 'hidden',zIndex: '1000', opacity: '.989' }} >
                 <div {...headerStyles2} >
                     <div>
                         { logo || <div>

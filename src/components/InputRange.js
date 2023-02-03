@@ -11,7 +11,7 @@ export const InputRange = props => {
             size="large"
             label={props.label}
           onChange={ (_, i) => props.onChange(`${i[0]} - ${i[1]}`) }
-          value={ (('' + props.value) || '2022 - 2023' ).split(' - ')?.map(i => moment(i)) } />
+          value={ (('' + props.value) || '2023 - 2024' ).split(' - ')?.map(i => moment(i)) } />
     </Form.Item>
   )
 }
