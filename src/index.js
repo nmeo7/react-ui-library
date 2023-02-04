@@ -12,6 +12,7 @@ export { openNotification } from './components/Notification'
 export { Table } from './components/Table'
 export { TextArea } from './components/TextArea'
 
+export { AppLayout } from './layouts/AppLayout'
 export { DashboardLayout } from './layouts/DashboardLayout'
 export { WebsiteLayout } from './layouts/WebsiteLayout'
 

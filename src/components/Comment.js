@@ -9,7 +9,7 @@ export const Comment = ({content, createdBy, actionName, actionDetails, createdA
             <span style={{ fontSize: '12px' }} >{createdAt}</span>
         </div>
         {
-            children && <p style={{ color: '#777', border: '1px solid #eee', borderRadius: '8px', padding: '8px', marginTop: '12px' }} >{children}</p>
+            (children || content) && <p style={{ color: '#777', border: '1px solid #eee', borderRadius: '8px', padding: '8px', marginTop: '12px' }} >{children || content}</p>
         }
     </div>
 )
