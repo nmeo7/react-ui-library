@@ -1,6 +1,7 @@
 import React from 'react'
-import { css } from 'glamor'
+// import { css } from 'glamor'
 // import AOS from 'aos'
+const css = () => {}
 
 const bar1 = css({ 
   position: 'absolute', height: '5px', right: '32px', top: '32px', width: '36px', backgroundColor: 'black', display: 'block', borderRadius: '5px', transition: '0.3s ease', 

@@ -1,30 +1,10 @@
-import React from 'react'
-import { css } from 'glamor'
+import React, { useEffect, useState } from 'react'
+import { useResponsiveStyles2 } from '../components/styles'
 
-export const backgroundTheme = (theme) =>
-  css({
-    background: theme?.backgroundColor || '#fffdf9',
-    borderBottom: `${theme?.primaryColorLight} 1px solid`,
-    borderBottom: '1px solid #f0fbff'
-  })
-
-const wrapper = css({
-  position: 'fixed',
-  width: 'calc(100% - 192px)',
-  width: '100%',
-  zIndex: '1',
-  top: '0',
-  padding: '20px 0',
-  left: '0',
-  '@media(max-width: 720px)': {
-    width: 'calc(100% - 80px)',
-    width: '100%',
-    padding: '20px 40px',
-    position: 'relative',
-    '& .hide-on-phone': {
-      display: 'none'
-    }
-  }
+export const backgroundTheme = (theme) => ({
+  background: theme?.backgroundColor || '#fffdf9',
+  borderBottom: `${theme?.primaryColorLight} 1px solid`,
+  borderBottom: '1px solid #f0fbff'
 })
 
 export const DashboardHeader = (props) => {
@@ -39,85 +19,80 @@ export const DashboardHeader = (props) => {
     logo
   } = props.headerOptions
 
-  const styles =
-    props.scrolled && stickingHeader
-      ? css({
-          '& .hide-on-scroll': {
-            visibility: 'hidden'
-          }
-        })
-      : css({
-          '& .show-on-scroll': {
-            visibility: 'hidden'
-          }
-        })
+  const [styles2, setStyles2] = useState()
 
-  const styles2 = props.scrolled
-    ? css({
-        boxShadow: '0px 1px 4px #985a0a'
-      })
-    : css({
-        // boxShadow: '0px 1px 4px #985a0a'
-      })
+  const wrapper = {
+    position: 'fixed',
+    width: 'calc(100% - 192px)',
+    width: '100%',
+    zIndex: '1',
+    top: '0',
+    padding: '20px 0',
+    left: '0',
+    small: {
+      width: 'calc(100% - 80px)',
+      width: '100%',
+      padding: '20px 40px',
+      position: 'relative'
+    }
+  }
+
+  useEffect(() => {
+    setStyles2(props.scrolled ? { boxShadow: '0px 1px 4px #985a0a' } : null)
+  }, [props.scrolled])
 
   const titleStyle =
     props.scrolled && stickingHeader
-      ? css({
+      ? {
           fontSize: '1.5em !important',
           fontSize: '2em !important',
           paddingBottom: '1em !important',
           paddingTop: '0.4em !important'
-        })
-      : css({})
+        }
+      : {}
 
   const sticking =
     props.scrolled && stickingHeader
-      ? css({
+      ? {
           display: 'block',
           bottom: 'calc(100vh - 141px)',
           height: '64px',
           zIndex: '1000',
           width: '100%'
-        })
-      : css({ display: 'none' })
+        }
+      : { display: 'none' }
 
-  const headerStyles2 = css({
+  const headerStyles2 = useResponsiveStyles2({
     maxWidth: '1440px',
     margin: 'auto',
     display: 'flex',
     flexDirection: 'left',
     padding: '0 64px',
-    '& > div': {
-      width: '240px',
-      position: 'relative'
-    },
-    '@media(max-width: 720px)': {
-      padding: '0',
-      '& h1': {
-        fontSize: '2em'
-      },
-      '& > div': {
-        width: 'auto',
-        position: 'relative'
-      }
-    }
+    small: { padding: '0' }
   })
+
+  const headerStyles2Div = useResponsiveStyles2({
+    width: '240px',
+    position: 'relative',
+    small: { width: 'auto', position: 'relative' }
+  })
+
+  const headerStyles2H1 = useResponsiveStyles2({ small: { fontSize: '2em' } })
 
   const stickingButton =
     props.scrolled && stickingHeader
-      ? css({ margin: '0', marginBottom: '64px' })
-      : css({ margin: '32px 0' })
+      ? { margin: '0', marginBottom: '64px' }
+      : { margin: '32px 0' }
 
   const hours = new Date().getHours()
 
   return (
     <div>
       <div
-        {...styles}
-        {...styles2}
-        {...wrapper}
-        {...backgroundTheme(theme || null)}
         style={{
+          ...wrapper,
+          ...styles2,
+          ...backgroundTheme(theme || null),
           height: '164px',
           height: '161px',
           overflow: 'hidden',
@@ -125,18 +100,17 @@ export const DashboardHeader = (props) => {
           opacity: '.989'
         }}
       >
-        <div {...headerStyles2}>
-          <div>
+        <div style={{ ...headerStyles2 }}>
+          <div style={headerStyles2Div}>
             {logo || (
               <div>
                 <img alt='logo' />
               </div>
             )}
           </div>
-          <div style={{ flex: '1' }}>
+          <div style={{ ...headerStyles2Div, flex: '1' }}>
             <div>{breadcrumb || <div>Home</div>}</div>
-            <h1 {...titleStyle} style={{ transitionDuration: '.1s' }}>
-              {' '}
+            <h1 style={{ transitionDuration: '.1s', ...titleStyle }}>
               {title
                 ? title
                 : `Good ${
@@ -145,15 +119,26 @@ export const DashboardHeader = (props) => {
                     'Morning'
                   }, ${displayName}!`}
             </h1>
-            <i className='hide-on-scroll hide-on-phone'>{subtitle}</i>
+            <i
+              className='hide-on-scroll hide-on-phone'
+              style={{
+                ...headerStyles2H1,
+                ...(props.scrolled && stickingHeader
+                  ? { visibility: 'hidden' }
+                  : {})
+              }}
+            >
+              {subtitle}
+            </i>
           </div>
           <div
             style={{
+              ...headerStyles2Div,
               paddingLeft: '16px',
               transitionDuration: '.2s',
-              width: 'fit-content'
+              width: 'fit-content',
+              ...stickingButton
             }}
-            {...stickingButton}
             className='hide-on-phone'
           >
             {quickAction}
@@ -161,7 +146,7 @@ export const DashboardHeader = (props) => {
         </div>
       </div>
       {stickingHeader ? (
-        <div {...sticking} style={{ position: 'fixed' }}>
+        <div style={{ position: 'fixed', ...sticking }}>
           <div
             style={{
               display: 'flex',

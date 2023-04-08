@@ -1,35 +1,30 @@
 import React from 'react'
-// import { QueryClient } from 'react-query'
-import { css } from 'glamor'
 import { Button } from '../components/Button'
-
-// export const queryClient = new QueryClient()
-
-const style = css({
-  height: '100vh',
-  margin: 'auto',
-  '@media only screen and (min-width: 1600px)': {
-    height: 'calc(100vh - 32px)',
-    margin: 'auto',
-    boxShadow: '#393d3a 2px 2px 16px',
-    borderRadius: '8px'
-  }
-})
-
-const style1 = css({
-  height: '100vh',
-  padding: '0',
-  '@media only screen and (min-width: 1600px)': {
-    paddingTop: '16px',
-    paddingBottom: '16px'
-  }
-})
+import { useResponsiveStyles2 } from '../components/styles'
 
 export const AppLayout = (props) => {
+  const containerStyles = useResponsiveStyles2({
+    height: '100vh',
+    margin: 'auto',
+    large: {
+      height: 'calc(100vh - 32px)',
+      margin: 'auto',
+      boxShadow: '#393d3a 2px 2px 16px',
+      borderRadius: '8px'
+    }
+  })
+
+  const appOverlayStyles = useResponsiveStyles2({
+    height: '100vh',
+    padding: '0',
+    large: { paddingTop: '16px', paddingBottom: '16px' }
+  })
+
   return (
-    <div style={{ background: 'rgb(12, 13, 13)' }} {...style1}>
+    <div style={{ ...appOverlayStyles, background: 'rgb(12, 13, 13)' }}>
       <div
         style={{
+          ...containerStyles,
           backgroundColor: '#191d1a',
           color: 'rgb(251, 249, 242)',
           padding: '32px',
@@ -37,9 +32,7 @@ export const AppLayout = (props) => {
           maxWidth: '1600px',
           gap: '32px',
           minHeight: '540px'
-          // paddingRight: '0',
         }}
-        {...style}
       >
         <div
           style={{
@@ -52,20 +45,7 @@ export const AppLayout = (props) => {
             height: 'calc(100vh - 64px)'
           }}
         >
-          <div style={{ flex: 1 /* overflowY: 'scroll' */ }}>
-            {/* <Input placeholder='Search Applications' /> */}
-            {/* <Steps
-              direction='vertical'
-              size='small'
-              current={1}
-              items={[
-                { title: 'Finished', description: 'This is a description.' }, // , onClick: () => navigate('/next-gen') },
-                { title: 'In Progress', description: 'This is a description.' },
-                { title: 'Waiting', description: 'This is a description.' }
-              ]}
-            /> */}
-            {props.left}
-          </div>
+          <div style={{ flex: 1 }}>{props.left}</div>
           <div
             style={{ padding: '32px 0', borderTop: '1px solid #333' }}
             onClick={props.logout}
@@ -75,17 +55,7 @@ export const AppLayout = (props) => {
         </div>
         <div style={{ flex: '7', overflow: 'hidden' }}>
           <div>
-            <div
-              style={
-                {
-                  // flex: '7',
-                  // display: 'grid',
-                  // placeContent: 'center',
-                  // overflow: 'scroll',
-                  // maxHeight: '100vh',
-                }
-              }
-            >
+            <div>
               <div
                 style={{
                   marginBottom: '16px',
