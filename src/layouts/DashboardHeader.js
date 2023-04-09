@@ -47,8 +47,8 @@ export const DashboardHeader = (props) => {
       ? {
           fontSize: '1.5em !important',
           fontSize: '2em !important',
-          paddingBottom: '1em !important',
-          paddingTop: '0.4em !important'
+          paddingBottom: '0em !important',
+          paddingTop: '0em !important'
         }
       : {}
 
@@ -95,7 +95,7 @@ export const DashboardHeader = (props) => {
           ...styles2,
           ...backgroundTheme(theme || null),
           height: '164px',
-          height: '161px',
+          height: '96px',
           overflow: 'hidden',
           zIndex: '1000',
           opacity: '.989'
@@ -111,7 +111,13 @@ export const DashboardHeader = (props) => {
           </div>
           <div style={{ ...headerStyles2Div, flex: '1' }}>
             <div>{breadcrumb || <div>Home</div>}</div>
-            <h1 style={{ transitionDuration: '.1s', ...titleStyle }}>
+            <h1
+              style={{
+                transitionDuration: '.1s',
+                ...titleStyle,
+                margin: '0 0 8px 0'
+              }}
+            >
               {title
                 ? title
                 : `Good ${
@@ -164,7 +170,7 @@ export const DashboardHeader = (props) => {
       ) : (
         <div></div>
       )}
-      <div style={{ height: '210px' }}></div>
+      <div style={{ height: '140px' }}></div>
     </div>
   )
 }
