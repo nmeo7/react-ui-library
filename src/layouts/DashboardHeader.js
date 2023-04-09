@@ -19,7 +19,8 @@ export const DashboardHeader = (props) => {
     logo
   } = props.headerOptions
 
-  const [styles2, setStyles2] = useState()
+  // const [styles2, setStyles2] = useState()
+  const styles2 = {}
 
   const wrapper = {
     position: 'fixed',
@@ -37,9 +38,9 @@ export const DashboardHeader = (props) => {
     }
   }
 
-  useEffect(() => {
-    setStyles2(props.scrolled ? { boxShadow: '0px 1px 4px #985a0a' } : null)
-  }, [props.scrolled])
+  // useEffect(() => {
+  //   setStyles2(props.scrolled ? { boxShadow: '0px 1px 4px #985a0a' } : null)
+  // }, [props.scrolled])
 
   const titleStyle =
     props.scrolled && stickingHeader

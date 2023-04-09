@@ -11,12 +11,13 @@ export const glass = {
 export const grid = { display: 'grid', placeItems: 'center' }
 
 export const useResponsiveStyles2 = ({ small, large, ...defaultStyles }) => {
-  const [size, setSize] = useState(window.innerWidth)
+  // const [size, setSize] = useState(window.innerWidth)
 
-  useEffect(() => {
-    setSize(window.innerWidth)
-    window.addEventListener('resize', () => setSize(window.innerWidth))
-  }, [])
+  // useEffect(() => {
+  //   setSize(window.innerWidth)
+  //   window.addEventListener('resize', () => setSize(window.innerWidth))
+  // }, [])
+  const size = 1600
 
   return {
     ...defaultStyles,
