@@ -4,10 +4,27 @@ import styled from 'styled-components'
 export const MenuItems = styled.div`
   width: 240px;
   position: fixed;
-  top: 172px;
+  top: 196px;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 208px);
+  height: calc(100vh - 236px);
+
+  & > div {
+    padding: 0;
+  }
+
+  & a {
+    padding: 16px;
+    border-radius: 32px;
+    text-decoration: none;
+    color: black;
+  }
+
+  & span {
+    vertical-align: bottom;
+    height: 22px;
+    display: inline-block;
+  }
 
   @media (max-width: 720px) {
     color: white;
@@ -22,35 +39,24 @@ export const MenuItems = styled.div`
     flex-direction: row;
     margin: 0;
     text-align: center;
+
     & > div {
       flex: 1;
       padding: 0;
     }
+
     & a {
       padding: 16px;
       border-radius: 32px;
       text-decoration: none;
       color: black;
     }
+
     & span {
       vertical-align: bottom;
       height: 22px;
       display: inline-block;
     }
-  }
-  & > div {
-    padding: 0;
-  }
-  & a {
-    padding: 16px;
-    border-radius: 32px;
-    text-decoration: none;
-    color: black;
-  }
-  & span {
-    vertical-align: bottom;
-    height: 22px;
-    display: inline-block;
   }
 `
 

@@ -95,7 +95,7 @@ export const DashboardHeader = (props) => {
           ...styles2,
           ...backgroundTheme(theme || null),
           height: '164px',
-          height: '96px',
+          height: '120px',
           overflow: 'hidden',
           zIndex: '1000',
           opacity: '.989'
@@ -115,7 +115,7 @@ export const DashboardHeader = (props) => {
               style={{
                 transitionDuration: '.1s',
                 ...titleStyle,
-                margin: '0 0 8px 0'
+                margin: '4px 0 12px 0'
               }}
             >
               {title
@@ -170,7 +170,7 @@ export const DashboardHeader = (props) => {
       ) : (
         <div></div>
       )}
-      <div style={{ height: '140px' }}></div>
+      <div style={{ height: '164px' }}></div>
     </div>
   )
 }

@@ -20,6 +20,7 @@ export { formatCurrency } from './services/formatNumber'
 export {
   ConfigProvider as AntConfigProvider,
   Form as AntForm,
+  Input as AntInput,
   Upload,
   Timeline,
   Space,
@@ -31,3 +32,9 @@ export {
   Spin,
   Modal
 } from 'antd'
+
+import styled from 'styled-components'
+export { styled }
+
+import * as Icons from '@ant-design/icons'
+export { Icons }
