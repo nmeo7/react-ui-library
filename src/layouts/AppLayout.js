@@ -1,24 +1,24 @@
 import React from 'react'
-import { Button } from '../components/Button'
-import { useResponsiveStyles2 } from '../components/styles'
+// import { Button } from '../components/Button'
+// import { useResponsiveStyles2 } from '../components/styles'
 
 export const AppLayout = (props) => {
-  const containerStyles = useResponsiveStyles2({
+  const containerStyles = {
     height: '100vh',
-    margin: 'auto',
-    large: {
-      height: 'calc(100vh - 32px)',
-      margin: 'auto',
-      boxShadow: '#393d3a 2px 2px 16px',
-      borderRadius: '8px'
-    }
-  })
+    margin: 'auto'
+    // large: {
+    //   height: 'calc(100vh - 32px)',
+    //   margin: 'auto',
+    //   boxShadow: '#393d3a 2px 2px 16px',
+    //   borderRadius: '8px'
+    // }
+  }
 
-  const appOverlayStyles = useResponsiveStyles2({
+  const appOverlayStyles = {
     height: '100vh',
-    padding: '0',
-    large: { paddingTop: '16px', paddingBottom: '16px' }
-  })
+    padding: '0'
+    // large: { paddingTop: '16px', paddingBottom: '16px' }
+  }
 
   return (
     <div style={{ ...appOverlayStyles, background: 'rgb(12, 13, 13)' }}>
@@ -37,7 +37,7 @@ export const AppLayout = (props) => {
         <div
           style={{
             maxWidth: '320px',
-            flex: '2',
+            flex: '0',
             borderRight: '1px solid #333',
             paddingRight: '32px',
             display: 'flex',
@@ -73,8 +73,9 @@ export const AppLayout = (props) => {
                 >
                   {props.title}
                 </h1>
+                {props.quickAction}
 
-                {props.quickAction && (
+                {/* {props.quickAction && (
                   <Button
                     ghost
                     style={{ margin: '4px 0' }}
@@ -82,7 +83,7 @@ export const AppLayout = (props) => {
                   >
                     {props.quickAction}
                   </Button>
-                )}
+                )} */}
               </div>
               <div
                 style={{

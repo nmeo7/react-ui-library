@@ -1,5 +1,5 @@
 import React from 'react'
-import { BackTop } from 'antd'
+import { BackTop, FloatButton } from 'antd'
 import { DashboardHeader } from './DashboardHeader'
 
 const backToTop = {
@@ -18,13 +18,15 @@ export const DashboardLayout = ({
   LeftMenu,
   Footer,
   theme,
+  background,
   ...props
 }) => {
   return (
     <div>
+      {background}
       <DashboardHeader
         headerOptions={headerOptions}
-        scrolled={headerOptions.scrolled}
+        scrolled={props.scrolled}
       />
       <div>
         <div
@@ -35,16 +37,22 @@ export const DashboardLayout = ({
             gap: '32px',
             width: '100%',
             margin: 'auto',
-            maxWidth: '1440px',
+            maxWidth: '1312px',
             marginTop: '32px',
             marginBottom: '32px'
           }}
         >
-          <div style={{ flex: '1 1 480px', minHeight: 'calc(100vh - 254px)' }}>
+          <div
+            style={{
+              flex: '1 1 480px',
+              maxWidth: 'calc(1312px - 208px - 48px)',
+              minHeight: 'calc(100vh - 254px)'
+            }}
+          >
             {props.children}
           </div>
           <div style={{ flex: '0 1 208px' }}>{LeftMenu}</div>
-          <BackTop style={backToTop} />
+          <FloatButton.BackTop style={backToTop} />
         </div>
         <div style={{ marginBottom: '32px', marginTop: '32px' }}>{Footer}</div>
       </div>

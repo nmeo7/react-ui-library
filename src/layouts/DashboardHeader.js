@@ -20,7 +20,7 @@ export const DashboardHeader = (props) => {
   } = props.headerOptions
 
   // const [styles2, setStyles2] = useState()
-  const styles2 = {}
+  // const styles2 = {}
 
   const wrapper = {
     position: 'fixed',
@@ -42,21 +42,16 @@ export const DashboardHeader = (props) => {
   //   setStyles2(props.scrolled ? { boxShadow: '0px 1px 4px #985a0a' } : null)
   // }, [props.scrolled])
 
+  const scrolledStyle = props.scrolled && { boxShadow: '0px 1px 4px #985a0a' }
+
   const titleStyle =
-    props.scrolled && stickingHeader
-      ? {
-          fontSize: '1.5em !important',
-          fontSize: '2em !important',
-          paddingBottom: '0em !important',
-          paddingTop: '0em !important'
-        }
-      : {}
+    props.scrolled && stickingHeader ? { paddingTop: '0em' } : {}
 
   const sticking =
     props.scrolled && stickingHeader
       ? {
           display: 'block',
-          bottom: 'calc(100vh - 141px)',
+          bottom: 'calc(100vh - 154px)',
           height: '64px',
           zIndex: '1000',
           width: '100%'
@@ -64,7 +59,7 @@ export const DashboardHeader = (props) => {
       : { display: 'none' }
 
   const headerStyles2 = useResponsiveStyles2({
-    maxWidth: '1440px',
+    maxWidth: '1312px',
     margin: 'auto',
     display: 'flex',
     flexDirection: 'left',
@@ -92,7 +87,7 @@ export const DashboardHeader = (props) => {
       <div
         style={{
           ...wrapper,
-          ...styles2,
+          ...scrolledStyle,
           ...backgroundTheme(theme || null),
           height: '164px',
           height: '120px',
@@ -114,8 +109,8 @@ export const DashboardHeader = (props) => {
             <h1
               style={{
                 transitionDuration: '.1s',
-                ...titleStyle,
-                margin: '4px 0 12px 0'
+                margin: '4px 0 12px 0',
+                ...titleStyle
               }}
             >
               {title
@@ -157,7 +152,7 @@ export const DashboardHeader = (props) => {
           <div
             style={{
               display: 'flex',
-              maxWidth: '1440px',
+              maxWidth: '1312px',
               width: '100%',
               margin: 'auto',
               padding: '8px 64px'

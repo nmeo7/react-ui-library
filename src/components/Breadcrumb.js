@@ -1,12 +1,17 @@
 import React from 'react'
-import { Breadcrumb as AntBreadcrumb } from "antd"
+import { Breadcrumb as AntBreadcrumb } from 'antd'
 
-export const Breadcrumb = ({items, navigate}) => (
-	<AntBreadcrumb>
-		{items.map(i => 
-            <AntBreadcrumb.Item onClick={() => navigate(i[1])} style={{ cursor: i[1] && 'pointer' }} >
-                {i[2]}&nbsp;&nbsp;{i[0]}
-            </AntBreadcrumb.Item>
-        )}
-	</AntBreadcrumb>
-)
+export const Breadcrumb = ({ items, last, navigate }) => {
+  return (
+    <AntBreadcrumb>
+      {items.map((i) => (
+        <AntBreadcrumb.Item
+          onClick={() => i[2] && navigate(i[2])}
+          style={{ cursor: i[2] && 'pointer' }}
+        >
+          {i[0]}&nbsp;&nbsp;{i[1]}
+        </AntBreadcrumb.Item>
+      ))}
+    </AntBreadcrumb>
+  )
+}

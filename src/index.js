@@ -21,6 +21,7 @@ export {
   ConfigProvider as AntConfigProvider,
   Form as AntForm,
   Input as AntInput,
+  Radio as AntRadio,
   Upload,
   Timeline,
   Space,
@@ -30,7 +31,10 @@ export {
   Steps,
   Skeleton,
   Spin,
-  Modal
+  Modal,
+  Select,
+  App,
+  Tabs
 } from 'antd'
 
 import styled from 'styled-components'

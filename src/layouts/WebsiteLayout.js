@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 const Bar = styled.div`
   position: absolute;
@@ -53,29 +53,6 @@ const Bar3 = styled(Bar)`
   }
 `
 
-const listStyle = css({
-  listStyle: 'none',
-  padding: '12px 0',
-  transform: 'translateY(-20px)',
-  transition: '.1s ease',
-  opacity: '0',
-  '@media(min-width: 720px)': {
-    opacity: '1',
-    float: 'left',
-    margin: '46px 20px'
-  },
-  '.change &': {
-    transform: 'translateY(0)',
-    opacity: '1',
-    '&:hover a': {
-      background: 'black'
-    }
-  },
-  '& a': {
-    padding: '12px 0'
-  }
-})
-
 const MenuBar = styled.div`
   z-index: 99999;
   width: 36px;
@@ -105,6 +82,94 @@ const transitionDelays = [
   '.68s'
 ]
 
+const Menu = styled.ul`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    padding: 10px;
+  }
+`
+
+const MenuItem = styled.li`
+  margin: 0 10px;
+
+  @media screen and (max-width: 600px) {
+    margin: 10px 0;
+  }
+`
+
+const Hamburger = styled.div`
+  display: none;
+
+  @media screen and (max-width: 600px) {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 9999;
+  }
+`
+
+const HamburgerIcon = styled.span`
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: all 0.2s ease-in-out;
+
+  ${({ active }) =>
+    active &&
+    `
+    &:nth-child(2) {
+      opacity: 0;
+      transform: translate(-20px, 0px);
+    }
+
+    &:nth-child(1) {
+      transform: translate(0px, 10px) rotate(45deg);
+    }
+
+    &:nth-child(3) {
+      transform: translate(0px, -10px) rotate(-45deg);
+    }
+  `}
+`
+
+const Dropdown = styled.div`
+  display: none;
+
+  ${({ active }) =>
+    active &&
+    `
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+  `}
+`
+
+const DropdownItem = styled.a`
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #333;
+`
+
 export const WebsiteLayout = ({
   menuItems,
   logo,
@@ -119,54 +184,35 @@ export const WebsiteLayout = ({
     { label: 'Blog', link: 'blog' }
   ]
 
+  // const [isActive, setIsActive] = useState(false)
+
+  const handleToggle = () => {
+    // setOpened(!opened)
+  }
+
   return (
     <div
-      className={opened ? 'change' : ''}
+      // className={opened ? 'change' : ''}
       style={{ maxWidth: '1440px', margin: 'auto' }}
     >
-      <div style={{ position: 'relative' }}>
-        <div
-          style={{
-            zIndex: '99999',
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            right: '0',
-            height: '156px',
-            boxShadow: '#ebcf8a 16px 4px 32px',
-            backgroundColor: '#F9F1DCaa'
-          }}
-        ></div>
-        <div
-          style={{
-            zIndex: '99999',
-            position: 'fixed',
-            top: '0',
-            maxWidth: '1440px',
-            width: '100%',
-            height: '96px',
-            padding: '16px'
-          }}
-        >
-          <a href=''>{logo || ''}</a>
-          <Bar1 id='bar1'></Bar1>
-          <Bar2 id='bar2'>
-            <ul style={{ padding: '24px 22px', transition: '0.3s ease' }}>
-              {menus.map((menu, i) => (
-                <li
-                  key={menu.label}
-                  css={listStyle}
-                  style={{ transitionDelay: transitionDelays[i] }}
-                >
-                  <a href={menu.link}>{menu.label}</a>
-                </li>
-              ))}
-            </ul>
-          </Bar2>
-          <Bar3 id='bar3'></Bar3>
-        </div>
-
-        <MenuBar id='menu-bar' onClick={() => setOpened(!opened)}></MenuBar>
+      <div>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Services</li>
+          <li>Contact</li>
+        </ul>
+        {/* <Hamburger onClick={handleToggle}>
+          <HamburgerIcon active={opened} />
+          <HamburgerIcon active={opened} />
+          <HamburgerIcon active={opened} />
+        </Hamburger>
+        <Dropdown active={opened}>
+          <DropdownItem href='#'>Home</DropdownItem>
+          <DropdownItem href='#'>About</DropdownItem>
+          <DropdownItem href='#'>Services</DropdownItem>
+          <DropdownItem href='#'>Contact</DropdownItem>
+        </Dropdown> */}
       </div>
 
       <div>{children}</div>
