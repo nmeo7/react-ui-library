@@ -18,11 +18,10 @@ const LeftMenu1 = styled.div`
 `
 
 const Content = styled.div`
-  position: absolute;
-  left: 240px;
+  padding-left: 240px;
   width: calc(100% - 240px);
   min-height: calc(100vh - 254px);
-  overflow: scroll;
+  overflow: auto;
   @media (max-width: 720px) {
     left: 0;
     width: 100%;
@@ -59,12 +58,11 @@ export const DashboardLayout = ({
       <div>
         <div
           style={{
-            position: 'relative',
-            width: '100%',
             margin: 'auto',
             maxWidth: '1312px',
             marginTop: '32px',
-            marginBottom: '32px'
+            marginBottom: '32px',
+            padding: '0 64px'
           }}
         >
           <Content>
