@@ -22,6 +22,7 @@ export {
   Form as AntForm,
   Input as AntInput,
   Radio as AntRadio,
+  DatePicker,
   Upload,
   Timeline,
   Space,
@@ -34,6 +35,7 @@ export {
   Modal,
   Select,
   App,
+  Checkbox,
   Tabs
 } from 'antd'
 

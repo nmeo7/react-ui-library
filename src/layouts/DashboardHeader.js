@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useResponsiveStyles2 } from '../components/styles'
 
 export const backgroundTheme = (theme) => ({

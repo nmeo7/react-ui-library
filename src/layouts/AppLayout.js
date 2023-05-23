@@ -1,58 +1,64 @@
 import React from 'react'
+import styled from 'styled-components'
+import { Button } from '../components/Button'
 // import { Button } from '../components/Button'
 // import { useResponsiveStyles2 } from '../components/styles'
 
+const Container = styled.div`
+  height: 100vh;
+  margin: auto;
+
+  background-color: #191d1a;
+  color: rgb(251, 249, 242);
+  padding: 32px;
+  display: flex;
+  max-width: 1600px;
+  gap: 32px;
+  min-height: 540px;
+  margin: auto;
+
+  @media (min-width: 1664px) {
+    height: calc(100vh - 128px);
+    margin: auto;
+    box-shadow: #393d3a 2px 2px 16px;
+    border-radius: 8px;
+    margin-top: 32px;
+  }
+`
+
+const AppOverlay = styled.div`
+  height: 100vh;
+  padding: 0;
+  background: rgb(12, 13, 13);
+  width: 100%;
+  position: fixed;
+  top: 0;
+`
+
 export const AppLayout = (props) => {
-  const containerStyles = {
-    height: '100vh',
-    margin: 'auto'
-    // large: {
-    //   height: 'calc(100vh - 32px)',
-    //   margin: 'auto',
-    //   boxShadow: '#393d3a 2px 2px 16px',
-    //   borderRadius: '8px'
-    // }
-  }
-
-  const appOverlayStyles = {
-    height: '100vh',
-    padding: '0'
-    // large: { paddingTop: '16px', paddingBottom: '16px' }
-  }
-
   return (
-    <div style={{ ...appOverlayStyles, background: 'rgb(12, 13, 13)' }}>
-      <div
-        style={{
-          ...containerStyles,
-          backgroundColor: '#191d1a',
-          color: 'rgb(251, 249, 242)',
-          padding: '32px',
-          display: 'flex',
-          maxWidth: '1600px',
-          gap: '32px',
-          minHeight: '540px'
-        }}
-      >
-        <div
-          style={{
-            maxWidth: '320px',
-            flex: '0',
-            borderRight: '1px solid #333',
-            paddingRight: '32px',
-            display: 'flex',
-            flexDirection: 'column',
-            height: 'calc(100vh - 64px)'
-          }}
-        >
-          <div style={{ flex: 1 }}>{props.left}</div>
+    <AppOverlay>
+      <Container>
+        {!props.dialog && (
           <div
-            style={{ padding: '32px 0', borderTop: '1px solid #333' }}
-            onClick={props.logout}
+            style={{
+              flex: '0 0 320px',
+              borderRight: '1px solid #333',
+              paddingRight: '32px',
+              display: 'flex',
+              flexDirection: 'column',
+              height: '100%'
+            }}
           >
-            Logout
+            <div style={{ flex: 1 }}>{props.left}</div>
+            <div
+              style={{ padding: '32px 0', borderTop: '1px solid #333' }}
+              onClick={props.logout}
+            >
+              Logout
+            </div>
           </div>
-        </div>
+        )}
         <div style={{ flex: '7', overflow: 'hidden' }}>
           <div>
             <div>
@@ -63,6 +69,11 @@ export const AppLayout = (props) => {
                   flexDirection: 'row'
                 }}
               >
+                {props.dialog && (
+                  <Button text onClick={() => props.dialog.navigate(-1)}>
+                    Back
+                  </Button>
+                )}
                 <h1
                   style={{
                     margin: '0',
@@ -100,7 +111,7 @@ export const AppLayout = (props) => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </Container>
+    </AppOverlay>
   )
 }

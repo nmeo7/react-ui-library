@@ -1,6 +1,34 @@
 import React from 'react'
-import { BackTop, FloatButton } from 'antd'
+import { FloatButton } from 'antd'
 import { DashboardHeader } from './DashboardHeader'
+import styled from 'styled-components'
+
+const LeftMenu1 = styled.div`
+  position: fixed;
+  top: 196px;
+  @media (max-width: 720px) {
+    color: white;
+    bottom: 0;
+    left: 0;
+    right: 64px;
+    height: 96px;
+    width: 100%;
+    top: auto;
+  }
+`
+
+const Content = styled.div`
+  position: absolute;
+  left: 240px;
+  width: calc(100% - 240px);
+  min-height: calc(100vh - 254px);
+  overflow: scroll;
+  @media (max-width: 720px) {
+    left: 0;
+    width: 100%;
+    padding: 32px;
+  }
+`
 
 const backToTop = {
   height: 40,
@@ -31,10 +59,7 @@ export const DashboardLayout = ({
       <div>
         <div
           style={{
-            display: 'flex',
-            flexDirection: 'row-reverse',
-            flexWrap: 'wrap',
-            gap: '32px',
+            position: 'relative',
             width: '100%',
             margin: 'auto',
             maxWidth: '1312px',
@@ -42,19 +67,15 @@ export const DashboardLayout = ({
             marginBottom: '32px'
           }}
         >
-          <div
-            style={{
-              flex: '1 1 480px',
-              maxWidth: 'calc(1312px - 208px - 48px)',
-              minHeight: 'calc(100vh - 254px)'
-            }}
-          >
+          <Content>
             {props.children}
-          </div>
-          <div style={{ flex: '0 1 208px' }}>{LeftMenu}</div>
+            <div style={{ marginBottom: '32px', marginTop: '32px' }}>
+              {Footer}
+            </div>
+          </Content>
+          <LeftMenu1>{LeftMenu}</LeftMenu1>
           <FloatButton.BackTop style={backToTop} />
         </div>
-        <div style={{ marginBottom: '32px', marginTop: '32px' }}>{Footer}</div>
       </div>
     </div>
   )

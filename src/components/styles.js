@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import react from 'react'
 
 export const glass = {
   background: 'rgba(255, 255, 255, 0.05)',

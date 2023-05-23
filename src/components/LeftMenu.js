@@ -2,9 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const MenuItems = styled.div`
-  width: 240px;
-  position: fixed;
-  top: 196px;
   display: flex;
   flex-direction: column;
   height: calc(100vh - 236px);
@@ -27,13 +24,6 @@ export const MenuItems = styled.div`
   }
 
   @media (max-width: 720px) {
-    color: white;
-    bottom: 0;
-    left: 0;
-    right: 64px;
-    height: 96px;
-    width: 100%;
-    top: auto;
     border-radius: 32px 32px 0 0;
     background: #f9f1dc;
     flex-direction: row;
