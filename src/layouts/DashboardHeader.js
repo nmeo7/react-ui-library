@@ -151,15 +151,15 @@ export const DashboardHeader = (props) => {
         <div style={{ position: 'fixed', ...sticking }}>
           <div
             style={{
-              display: 'flex',
-              maxWidth: '1312px',
-              width: '100%',
-              margin: 'auto',
-              padding: '8px 64px'
+              position: 'relative',
+              maxWidth: '1400px',
+              width: 'calc(100% - 64px)',
+              margin: 'auto'
             }}
           >
-            <div style={{ width: '240px' }}></div>{' '}
-            <div style={{ flexGrow: '1' }}>{stickingHeader}</div>
+            <div style={{ position: 'absolute', left: '284px', right: '32px' }}>
+              {stickingHeader}
+            </div>
           </div>
         </div>
       ) : (
