@@ -61,7 +61,6 @@ export const DashboardLayout = ({
             margin: 'auto',
             maxWidth: '1312px',
             marginTop: '32px',
-            marginBottom: '32px',
             padding: '0 64px'
           }}
         >
