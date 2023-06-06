@@ -8,8 +8,8 @@ const Container = styled.div`
   height: 100vh;
   margin: auto;
 
-  background-color: #191d1a;
-  color: rgb(251, 249, 242);
+  background-color: #f9f1dc;
+  color: black;
   padding: 32px;
   display: flex;
   max-width: 1600px;
@@ -47,7 +47,7 @@ export const AppLayout = (props) => {
               paddingRight: '32px',
               display: 'flex',
               flexDirection: 'column',
-              height: '100%'
+              height: 'calc(100% - 72px)'
             }}
           >
             <div style={{ flex: 1 }}>{props.left}</div>
@@ -78,7 +78,7 @@ export const AppLayout = (props) => {
                   style={{
                     margin: '0',
                     padding: '0',
-                    color: '#ebcf8a',
+                    color: '#652c0e',
                     flex: '1'
                   }}
                 >
