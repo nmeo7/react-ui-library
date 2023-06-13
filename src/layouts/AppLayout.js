@@ -8,8 +8,8 @@ const Container = styled.div`
   height: 100vh;
   margin: auto;
 
-  background-color: #f9f1dc;
-  color: black;
+  background-color: ${(props) => props.bg || 'white'};
+  color: ${(props) => props.color || 'black'};
   padding: 32px;
   display: flex;
   max-width: 1600px;
@@ -38,7 +38,7 @@ const AppOverlay = styled.div`
 export const AppLayout = (props) => {
   return (
     <AppOverlay>
-      <Container>
+      <Container {...props.styles}>
         {!props.dialog && (
           <div
             style={{
